@@ -20,16 +20,16 @@
          <div class="container">
             
    <marquee>
-      @foreach($xem_hang_chi_tiet as $value)
+      @foreach($birthday as $value)
   	   <span class="item">Chúc mừng sinh nhật 
-   		<span class="name_user text_upper">{{$value->username}}</span>
+   		<span class="name_user text_upper">{{substr($value->name,0,4)}}******</span>
       </span>
       @endforeach
   	</marquee>
           <div class="info_user">
                <a class="link_login" rel="login-popup" href="javascript:void(0)" onclick="show_login()">Đăng nhập</a>
-               <p class="info_name">
-                  <span class=" name_user" style="font-family: 'tahomabold';">namduong1002</span>
+               <p class="info_name as">
+                  <span class=" name_user" style="font-family: 'tahomabold';"></span>
                   <a href="javascript:void(0)"  class="logout">Thoát</a>
                </p>
           </div>
@@ -77,29 +77,29 @@
     <div class="list_name_user">
 
                 <div class="item name_top1 text_upper">
-                    <p class="gradient_text name_1">trung thần thông</p>
+                    <p class="gradient_text name_1"> Phú Khả Địch Quốc</p>
                     <p class="name_1">
-                    {{$xem_hang_chi_tiet[0]->username}}                         </p>
+                    {{$xem_hang_chi_tiet[0]->rolename}}                         </p>
                 </div>
                                             <div class="item name_top2 text_upper">
-                    <p class="gradient_text name_1">tây độc</p>
+                    <p class="gradient_text name_1">Phú Quý Nghịch Thiên</p>
                     <p class="name_2">
-                    {{$xem_hang_chi_tiet[2]->username}}                       </p>
+                    {{$xem_hang_chi_tiet[2]->rolename}}                       </p>
                 </div>
                                             <div class="item name_top3 text_upper">
-                    <p class="gradient_text name_1">đông tà</p>
+                    <p class="gradient_text name_1">Tài Đại Khí Thô</p>
                     <p class="name_3">
-                    {{$xem_hang_chi_tiet[1]->username}}                  </p>
+                    {{$xem_hang_chi_tiet[1]->rolename}}                  </p>
                 </div>
                                             <div class="item name_top4 text_upper">
-                    <p class="gradient_text name_1">nam đế</p>
+                    <p class="gradient_text name_1">Phú Đại Quan Gia</p>
                     <p class="name_4">
-                    {{$xem_hang_chi_tiet[4]->username}}                    </p>
+                    {{$xem_hang_chi_tiet[4]->rolename}}                    </p>
                 </div>
                                             <div class="item name_top5 text_upper">
-                    <p class="gradient_text name_1">Bắc cái</p>
+                    <p class="gradient_text name_1">Gia Tài Vạn Quán</p>
                     <p class="name_5">
-                    {{$xem_hang_chi_tiet[3]->username}}                     </p>
+                    {{$xem_hang_chi_tiet[3]->rolename}}                     </p>
                 </div>
                                         
     </div>
@@ -111,14 +111,14 @@
            <div class="content_art">
               <div class="title_art">
                  <p class=" gradient_text text_center text_upper">
-                    nam đế
+                 Phú Đại Quan Gia
                  </p>
               </div>
               <div class="info_art">
                  <p class="name_art">
                     Tên nhân vật : 
                     <span class="color_orange">
-                    {{$xem_hang_chi_tiet[4]->username}}                                       </span>
+                    {{$xem_hang_chi_tiet[4]->rolename}}                                       </span>
                  </p>
                  <p class="maychu_art">
                     Máy chủ: 
@@ -144,14 +144,14 @@
            <div class="content_art">
               <div class="title_art">
                  <p class=" gradient_text text_center text_upper">
-                    tây độc
+                 Phú Quý Nghịch Thiên
                  </p>
               </div>
               <div class="info_art">
                  <p class="name_art">
                     Tên nhân vật : 
                     <span class="color_orange">
-                    {{$xem_hang_chi_tiet[2]->username}}                                         </span>
+                    {{$xem_hang_chi_tiet[2]->rolename}}                                         </span>
                  </p>
                  <p class="maychu_art">
                     Máy chủ: 
@@ -178,14 +178,14 @@
            <div class="content_art">
               <div class="title_art">
                  <p class=" gradient_text text_center text_upper">
-                    trung thần thông
+                   Phú Khả Địch Quốc
                  </p>
               </div>
               <div class="info_art">
                  <p class="name_art">
                     Tên nhân vật : 
                     <span class="color_orange">
-                                                   {{$xem_hang_chi_tiet[0]->username}}                                         </span>
+                        {{$xem_hang_chi_tiet[0]->rolename}}                                         </span>
                  </p>
                  <p class="maychu_art">
                     Máy chủ: 
@@ -211,14 +211,14 @@
            <div class="content_art">
               <div class="title_art">
                  <p class=" gradient_text text_center text_upper">
-                    đông tà
+                 Tài Đại Khí Thô
                  </p>
               </div>
               <div class="info_art">
                  <p class="name_art">
                     Tên nhân vật : 
                     <span class="color_orange">
-                    {{$xem_hang_chi_tiet[1]->username}}                                        </span>
+                    {{$xem_hang_chi_tiet[1]->rolename}}                                        </span>
                  </p>
                  <p class="maychu_art">
                     Máy chủ: 
@@ -244,14 +244,14 @@
            <div class="content_art">
               <div class="title_art">
                  <p class=" gradient_text text_center text_upper">
-                    bắc cái
+                 Gia Tài Vạn Quán
                  </p>
               </div>
               <div class="info_art">
                  <p class="name_art">
                     Tên nhân vật : 
                     <span class="color_orange">
-                    {{$xem_hang_chi_tiet[3]->username}}                                             </span>
+                    {{$xem_hang_chi_tiet[3]->rolename}}                                             </span>
                  </p>
                  <p class="maychu_art">
                     Máy chủ: 
@@ -275,18 +275,20 @@
 
 </section>
       <section class="checkvip">
-         <div class="container">
-            <div class="header_checkvip">
+         <div class="bg_xh">
+           <div class="container">
+           <div class="header_checkvip">
                <div class="text_left tugiac_left">
                   <p class="text_upper">phú hào ngũ tuyệt <span class="text_month"> <span class="month_show">7/2020</span></span></p>
                </div>
                <div href="#" class="link_show link_bxh text_upper text_center">
-                  <p class="a100 gradient_text">
-                     Bảng xếp hạng <br>
-                     <span>Chi tiết</span>
-                  </p>
+                  
                </div>
             </div>
+           </div>
+         </div>
+         <div class="container">
+            
             <div class="body_checkvip">
                <div class="title_body  text_upper text_center">
                   <p class="tugiac_left tugiac_right">Hệ thống cấp bậc VIP</p>
@@ -330,10 +332,8 @@
                </div>
                <p class="text_info tugiac_left">Hệ thông cấp bậc VIP được tính tích nạp vào game từ 1/1/2016 đến hiện tại</p>
                <p class="text_info tugiac_left">1 điểm VIP = 10 GOSU</p>
-               <div class="link_show link_dacquyen text_upper text_center" style="margin-top: -7px;">
-                  <p class="a100 gradient_text" style="font-size: 83% !important;">
-                     đặc quyền
-                  </p>
+               <div class="link_show link_dacquyen text_upper text_center" style="margin-top: 26px;">
+               
                </div>
             </div>
          </div>
@@ -396,55 +396,35 @@
    <div class="box_infovip">
       <div class="qua_thang">
          <div class="header_quathang clearfix">
-            <div class="left_header">
-               <div class="text_left">
-                  <p>
-                     <span class="span_username">name</span>
-                     <a href="#" class="logout">Thoát</a>
-                  </p>
-                  
-                  <p class="box_server">  
-                     <select name="server">
-                        <option value="0">Vui lòng chọn máy chủ</option>
-                        <option value="S1">Thái Sơn</option>
-                     </select>   
-                  </p>
-                  <div class="view_quathuong">
-                     <!-- <p class="link_left_header view_quavip color_orange">Xem phần thưởng &gt;</p> -->
-                  </div>
-               </div>
-               
-                  <div class="info">
-                        <p class="vip_now">
-                           <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/number_vip0.png" alt="">
-                        </p>
-                  </div>
-            </div>
             <div class="right_header">
-               <h2 class="tit_right_header text_upper">NHẬN QUÀ ƯU ĐÃI<br> THÁNG 10</h2>
+               <h2 class="tit_right_header text_upper">NHẬN QUÀ ƯU ĐÃI THÁNG 10</h2>
                
                </form>
             </div>
          </div>
-         <div class="body_quathang">
+      <div class="body_quathang">
             <div class="list_thang">
-            @foreach($qua_ngày as $value)
-                     <div class="item">
-                        <div class="month text_center">
-                           <p>{{$value->name}}</p>
-                        </div>
-                        <div class="box_qua" >
-                           <p class="icon_qua" onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}">
-                              <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
-                           </p>
-                           <p class="capbac text_center text_upper">
-                              vip N/A                        </p>
-                           <p class="text_center">
-                                                            <button class="text_upper btn_qua btn_khongdat" onclick="show_notification()">quá hạn</button>
-                                                      </p>
-                        </div>
-                     </div>
-               @endforeach  
+            @foreach($qua_ngay as $value)
+               <div class="item">
+                  <div class="month text_center">
+                     <p>{{$value->name}}</p>
+                  </div>
+                  <div class="box_qua" >
+                     <p class="icon_qua" onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}">
+                        <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
+                     </p>
+                     <p class="capbac text_center text_upper">
+                     {{$value->description}}
+                     </p>
+                    
+                     <p class="text_center">
+                           <button class="text_upper btn_qua btn_khongdat" onclick="show_notification()">quá hạn</button>
+                     </p>
+                  
+                     
+                  </div>
+               </div>
+            @endforeach  
                     
                   
                </div>
@@ -463,33 +443,9 @@
    <div class="box_infovip">
       <div class="qua_thang">
          <div class="header_quathang clearfix">
-            <div class="left_header">
-               <div class="text_left">
-      <p>
-         <span class="span_username">demo</span>
-         <a href="https://cuuam.gosu.vn/home/authenticate/logout.html?returnURL=https://cuuam.gosu.vn/home/vip/" class="logout">Thoát</a>
-      </p>
-      
-      <p class="box_server">
-            
-         <select name="server">
-   <option value="0">Vui lòng chọn máy chủ</option>
-   <option value="S1">Thái Sơn</option>
-   </select>   </p>
-      <div class="view_quathuong">
-         <!-- <p class="link_left_header view_quavip color_orange">Xem phần thưởng &gt;</p> -->
-      </div>
-      
-   </div>
-   
-            <div class="info">
-                  <p class="vip_now">
-                     <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/number_vip0.png" alt="">
-                  </p>
-               </div>
-            </div>
             <div class="right_header">
                <h2 class="tit_right_header text_upper">Nhận quà ưu đãi</h2>
+               
                <span class="tit_small">Mở nhận quà từ ngày <span class="color_orange">1-5 hàng tháng</span>.<br> Kết thúc nhận quà đến hết tháng đó! </span>
             </div>
          </div>
@@ -505,7 +461,7 @@
                               <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
                            </p>
                            <p class="capbac text_center text_upper">
-                              vip N/A                        </p>
+                           {{$value->description}}                   </p>
                            <p class="text_center">
                                                             <button class="text_upper btn_qua btn_khongdat" onclick="show_erros('Chức năng đã đóng.')">quá hạn</button>
                                                       </p>
@@ -540,34 +496,9 @@
 <div class="box_infovip tab-sinh-nhat" >
       <div class="qua_sinh_nhat qua_thang">
          <div class="header_quathang clearfix">
-            <div class="left_header">
-               <div class="text_left">
-                  <p>
-                     <span class="span_username">demo</span>
-                     <a href="#" class="logout">Thoát</a>
-                  </p>
-                  
-                  <p class="box_server">
-                        
-                     <select name="server">
-               <option value="0">Vui lòng chọn máy chủ</option>
-               <option value="S1">Thái Sơn</option>
-               </select>   </p>
-                  <div class="view_quathuong">
-                     <!-- <p class="link_left_header view_quavip color_orange">Xem phần thưởng &gt;</p> -->
-                  </div>
-                  
-               </div>
-               
-               <div class="info">
-                     <p class="vip_now">
-                        </p><p class="top_now color_orange day_sinhnhat">01.01</p>
-                     <p></p>
-               </div>
-            </div>
             <div class="right_header right_sinhnhat">
                <p class="title_info text_center text_upper" style="font-family: trajan !important;font-size: 40px;">
-                  QUÀ MỪNG<br> SINH NHẬT
+                  QUÀ MỪNG SINH NHẬT
                </p>
                
             </div>
@@ -610,9 +541,9 @@
             
             <div class="manage_info_left">
       <div class="name_user_exit">
-         <p class="clearfix">
+         <p class="clearfix as">
             <span>Xin chào</span> <span class="color_orange  name_user"></span>
-            <a href="#" class="logout">Thoát</a>
+            <a href="#" class="logout" style="color:#fff">Thoát</a>
          </p>
          <p class="line clearfix"></p>
          <p class="imgvip text_center">
@@ -622,18 +553,9 @@
             <div class="header_nhan_qua">
                Lịch sử nhận quà
             </div>
-            <ul>
-               <li>
-                  <span class="left">Tên vật phầm trao tặng</span><span class="right">2:06 PM 03/09/2020</span>
-               </li>
-               <li>
-                  <span class="left">Tên vật phầm trao tặng</span><span class="right">2:06 PM 03/09/2020</span>
-               </li>
-               <li>
-                  <span class="left">Tên vật phầm trao tặng</span><span class="right">2:06 PM 03/09/2020</span>
-               </li>
-               
-            </ul>
+            <div class="list">
+              
+            </div>
          </div>
       </div>
    </div>      
@@ -660,19 +582,21 @@
   
          </div>
       </footer>
-      <div class="anchor">
+      <div class="anchor-menu">
          <ul>
             <li>
                <a class="a100 tai_game active" target="_blank" href="#">
-                  <p class="text_tai gradient_text" style="font-size: 100% !important">tải game</p>
+                  <p class="text_tai gradient_text" style="font-size: 100% !important"><img src="./asset/down.png"></p>
                   <!-- <p class="gb gradient_text">18,7 GB</p> -->
                </a>
             </li>
-            <li><a class="a100 register" rel="register-popup" href="javascript:void(0)" onclick="show_registration()"><span class="gradient_text">đăng ký</span></a></li>
-            <li><a class="a100 card" target="_blank" href="#"><span class="gradient_text">nạp thẻ</span></a></li>
-            <li><a class="a100 card" target="_blank" href="#"><span class="gradient_text">nạp vàng</span></a></li>
-            <li><a class="a100 card link_faqvip" style="cursor: pointer;"><span class="gradient_text">faq vip</span></a></li>
+            <li><a class="a100 register" rel="register-popup" href="javascript:void(0)" onclick="show_registration()"><span class="gradient_text"><img src="./asset/dk.png"></span></a></li>
+            <li><a class="a100 card" target="_blank" href="#"><span class="gradient_text"><img src="./asset/nx.png"></span></a></li>
+            <li><a class="a100 card link_faqvip" style="cursor: pointer;"><span class="gradient_text"><img src="./asset/FAQ.png"></span></a></li>
          </ul>
+      </div>
+      <div class="back-to-top">
+         
       </div>
 
      
@@ -705,7 +629,7 @@
                   @foreach($xem_hang_chi_tiet as $value)
                    <tr>
                      <td>1</td>
-                     <td>{{$value->username}}</td>
+                     <td>{{substr($value->username,0,4)}}******</td>
                      <td>{{$value->rolename}}</td>
                      <td>{{$value->occupation}}</td>
 
@@ -878,7 +802,6 @@
                         <option value="0">Chọn nhân vật</option>
                      </select>
                   </div>
-                  <span class="texxt_err">s</span>
                   <button class="receiving_gifts"><img src="./asset/btn_detail.png"></button>
                </div>
             </div>
@@ -888,7 +811,7 @@
          <div class="content_popup">
             <div class="wrapper_popup">
                <div class="content_message">
-                  <a class="close_content"></a>
+                  <a class="close_content" data="notification"></a>
                </div>
             <div class="text_notification">
                <strong>Chúc mừng<span style="color: #420804;"> “Tên tài khoản”</span><br> đã nhận được vật phẩm <span style="color: #420804;">“ Một cái item”</span></strong><br>
@@ -945,19 +868,26 @@
                     
          $('.loaddata').on('click', function(e){
             var this_ = $(this);
-            $('.box_infovip').removeClass('active-info');
-            $('.'+ this_.attr('data-url')).addClass('active-info');
-            $('.loaddata').parent().removeClass('active');
-            $(this_).parent().addClass('active');
+            if(this_.attr('data-url') == 'tab-ca-nhan'){
+               if(!localStorage.getItem('account')){
+                  $('#popup_login').fadeIn();
+                  return false;
+               }
+                
+            }
+               $('.box_infovip').removeClass('active-info');
+               $('.'+ this_.attr('data-url')).addClass('active-info');
+               $('.loaddata').parent().removeClass('active');
+               $(this_).parent().addClass('active');
+            
+            
          });
            </script>
  <script type="text/javascript" src="./asset/vendor.min.js"></script>
  <script type="text/javascript" src="./asset/app.min.js"></script>
  <script>
     $(document).ready(function() {
-       $('.close_content').click(function() {
-          $('.popup').fadeOut();
-       });
+
          $('.vip1').click(function() {
            $('#popup_vip1').fadeIn();
         });
@@ -1019,15 +949,16 @@
  <script type="text/javascript">
    $(document).ready(function() {
       $('.close_content').click(function() {
+         if($(this).attr('data') == 'notification'){
+            $('#popup_notification').fadeOut();
+            return false;
+         }
          $('.popup').fadeOut();
       });
    });
 </script>
 <script>
    $(document).ready(function() {
-      $('.close_content').click(function() {
-         $('.popup').fadeOut();
-      });
       $('.art_top4').click(function() {
          $('#popup_art4').fadeIn();
       });
@@ -1064,11 +995,11 @@
              }).done(function( msg ) {
                 localStorage.setItem('account',JSON.stringify(msg));
                 checkLogin(localStorage.getItem('account'));
+                checkUser();
                 $('.popup').fadeOut();
           
              }).fail(function(){
                $('.text_notification').html('<strong>Tên tài khoản hoặc mật khẩu không đúng</strong>');
-               $('.popup').fadeOut();
                $('#popup_notification').fadeIn();
              }); 
         });
@@ -1092,8 +1023,8 @@
                    'g-recaptcha-response': token,
                 },
              }).done(function( msg ) {
-                $('.msg').text(msg.msg);
-                $('.modal-alert').show();
+                $('.text_notification').html('<strong>'+msg.text+'</strong>')
+                $('#popup_notification').fadeIn();
           
              }); 
         });
@@ -1147,7 +1078,8 @@
                      p_server_id:$('.select_role').val(),
                   },
             }).done(function( msg ) {
-              $('.texxt_err').html(msg);
+               $('.text_notification').html('<strong>'+msg+'</strong>');
+               $('#popup_notification').fadeIn();
             }).fail(function(){
                   
             }); 
@@ -1158,33 +1090,38 @@
          var value = JSON.parse(value);
          $('.link_login').hide();
          $('.info_name').show();
-         $('.info_name .name_user').html(value.name);
+         $('.as .name_user').html(value.name);
       }else{
          $('.link_login').show();
          $('.info_name').hide();
       }
       
    }
-   api();
-   function api(){
-      $.ajax({
-         type: "POST",
-         url: "https://gameapi.tieungaodailuc.com/api/sendgift",
-         dataType: 'json',
-         headers: {
-            "Authorization": "Basic " + btoa("tieungaogameapi:tnapi#20991406"), 
-         },
-         data: {
-            role_id:100,
-            zone_id:16,
-            gift_id:110042,
-            amount:1,
-         },
-         success: function (){
-            alert('Thanks for your comment!'); 
-         }
-         });
-   }
+ checkUser();
+ function checkUser(){
+   $.ajax({
+      headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      method: "POST",
+      url: "{{route('detail.user')}}",
+      dataType: "json",
+      data: {
+         p_uid:JSON.parse(localStorage.getItem('account')).uid,
+      },
+      }).done(function( msg ) {
+         $('.imgvip').html('<img src="./asset/number_vip'+msg.vip.level+'.png" alt="">')
+         $('.list_nhan_qua .list').html();
+         var html = '<ul>';
+         var list =  msg.list;
+            for (let i = 0; i <list.length; i++) {
+               html += '<li><span class="left">'+list[i].name+'</span><span class="right">'+list[i].received_time+'</span></li>';   
+            }
+               html +='</ul>';
+        $('.list_nhan_qua .list').html(html);
+       
+      })
+ }
 </script>
 </body>
 </html>

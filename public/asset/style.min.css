@@ -311,18 +311,9 @@
     -ms-transform: rotate(45deg) translateY(-50%);
     transform: rotate(45deg) translateY(-50%);
   }
+
   
-  .link_show {
-    width: 238px;
-    height: 96px;
-    background: url(./bg_btn_bxh_vip.png) no-repeat left top;
-    cursor: pointer;
-  }
-  
-  .link_show:hover {
-    background: url(./bg_btn_bxh_vip.png) no-repeat right top;
-  }
-  
+
   .gradient_text {
     background: -webkit-linear-gradient(#ffffff, #fabd48);
     -webkit-background-clip: text;
@@ -588,10 +579,10 @@
   }
   
   .checkvip .header_checkvip {
-    width: 1004px;
+    width: 600px;
     height: 61px;
-    background: url(./bg_header_checkvip.png) no-repeat center center;
     padding: 0 20px;
+    margin: auto;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
@@ -612,23 +603,6 @@
     font-family: 'uvnlaclongquanr';
   }
   
-  .checkvip .header_checkvip .link_bxh {
-    float: left;
-    margin-left: 84px;
-    margin-top: -15px;
-  }
-  
-  .checkvip .header_checkvip .link_bxh p {
-    font-size: 16px;
-    padding-top: 25px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: 'umtgodswordbold';
-  }
-  
-  .checkvip .header_checkvip .link_bxh p span {
-    font-size: 30px;
-  }
   
   .checkvip .header_checkvip .select_bxh {
     color: #efefef;
@@ -661,13 +635,15 @@
   }
   
   .checkvip .body_checkvip {
-    width: 1005px;
+    width: 900px;
     height: 414px;
+    margin: auto;
     margin-top: 80px;
     padding: 15px 15px 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background: url(./bg_body_checkvip.png) no-repeat center center;
+    background-image: url(./bg_body_checkvip.png);
+    background-size: 100% 100%;
   }
   
   .checkvip .body_checkvip .title_body {
@@ -690,26 +666,21 @@
   }
   
   .checkvip .body_checkvip .list_number_top .item:nth-child(-n+5) {
-    margin: 0 5px;
+    margin: 0 23px;
     margin-top: 40px;
   }
   
   .checkvip .body_checkvip .list_number_top .item:first-child {
-    margin-left: 8px;
+    margin-left: 20px !important;
   }
   
   .checkvip .body_checkvip .list_number_top .item:nth-child(6) {
     margin-left: 5px;
-    margin-top: 25px;
-  }
-  
-  .checkvip .body_checkvip .list_number_top .item:nth-child(n+7) {
-    margin-left: -5px;
-    margin-top: 25px;
+    margin-top: -4px !important;
   }
   
   .checkvip .body_checkvip .list_number_top .item:last-child {
-    margin-top: 0px;
+    margin-left: 7px !important;
   }
   
   .checkvip .body_checkvip .list_number_top .item .tooltiptext {
@@ -953,40 +924,43 @@
     color: #ff9427;
   }
   
-  .anchor {
-    width: 142px;
+  .anchor-menu {
+    width: 242px;
+    height: 280px;
     position: fixed;
     right: 10px;
     z-index: 99;
     top: 300px;
+    background-image: url('./bg_menu_right.png');
+    background-size: 100% 100%;
   }
-  
-  .anchor.run {
+  .back-to-top{
+    width: 100px;
+    height: 260px;
     position: fixed;
-    top: 20px;
+    background-image: url('./totop.png');
+    background-size: 100% 100%;
+    top: 563px;
+    right: 73px;
   }
-  
-  .anchor ul li a {
-    color: #ffffff;
-    font-size: 18px;
-    font-family: 'umtgodswordr';
-    text-transform: uppercase;
+  .anchor-menu ul{
+    padding-top: 41px;
+
+  }
+  .anchor-menu ul li a {
+    margin-left: 45px;
     text-align: center;
     width: 142px;
-    height: 58px;
-    line-height: 52px;
-    background: url(./bg_link_nav_right.png) no-repeat left top;
+    height: 28px;
+    padding: 10px 0;
   }
-  
   .anchor ul li a:hover {
-    background: url(./bg_link_nav_right.png) no-repeat right top;
     color: #ffee74;
   }
   
   .anchor ul li .tai_game {
     width: 142px;
     height: 85px;
-    background: url(./bg_taigame_nav_right.png) no-repeat left top;
     text-align: center;
     font-family: 'umtgodswordbold';
     font-size: 22px;
@@ -1736,11 +1710,13 @@
   .qua_thang .header_quathang .right_header {
     float: left;
     margin-left: 20px;
+    text-align: center;
+    width: 100%;
   }
   
   .qua_thang .header_quathang .right_header .tit_right_header {
     font-family: trajan !important;
-    font-size: 46px;
+    font-size: 37px;
   }
   
   .qua_thang .header_quathang .right_header .tit_small {
@@ -2050,19 +2026,19 @@
     color: #9b9796;
   }
   .item_normal img{
-    width: 120px;
+    width: 100px;
   }
-  .item_normal:nth-child(n+4){
-    margin-top:15px !important
+  .item_normal:nth-child(5){
+    margin-top:20px !important
   }
-  .item_normal:nth-child(n+4) img{
-    width: 155px;
+  .item_normal:nth-child(n+5) img{
+    width: 110px;
   }
   .item_normal:nth-child(6){
     margin-top:-21px !important
   }
   .item_normal:nth-child(6) img{
-    width: 150px !important;
+    width: 135px !important;
   }
   .list_number_top .item:nth-child(-n+4){
    margin-left: 20px !important;
@@ -2074,7 +2050,7 @@
     width: 95%;
   }
   .checkvip .body_checkvip .text_diem .item_diem:nth-child(-n+6){
-    margin-left: 53px;
+    margin-left: 27px;
   }
   .text_bd{
     width: 40%;
@@ -2170,4 +2146,34 @@
   width: 95%; */
   margin:-22px auto 0 auto;
 
+}
+.topvip .list_name_user .item .gradient_text{
+  font-size: 12px !important;
+}
+.bg_xh{
+  width: 100%;
+  height: 61px;
+  background-image: url('./bg_xh.png');
+}
+.bg_xh .container{
+  background-image: url('./bg_xh.png');
+}
+.header_checkvip .link_show{
+  background-image: url(./btn_bxh.png);
+  background-size: 100% 100%;
+  width: 220px;
+  height: 67px;
+  float: left;
+  margin-left: 30px;
+  margin-top: -7px;
+}
+.body_checkvip .link_show{
+  background-image: url(./bg_dq.png);
+  background-size: 100% 100%;
+  width: 220px;
+  height: 67px;
+}
+.capbac{
+  font-size: 13px;
+  text-transform: capitalize;
 }
