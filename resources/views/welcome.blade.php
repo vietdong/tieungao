@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="{{asset('asset/vendor.min.css')}}">
       <link rel="stylesheet" href="{{asset('asset/style.min.css')}}">
       <script type="text/javascript" src="{{asset('asset/jquery-1.11.2.min.js')}}"></script>
-      <script src="https://www.google.com/recaptcha/api.js?render=6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3"></script>
+      <script src="https://www.google.com/recaptcha/api.js?render=6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp"></script>
 </head>
 <body>
       <section class="marquee">
@@ -72,8 +72,10 @@
             <img src="./asset/art_top5.png" alt="">
         </div>
     </div>
-
-    
+      
+    <div class="rotate">
+       <img src="./asset/rotare.png">
+    </div>
     <div class="list_name_user">
 
                 <div class="item name_top1 text_upper">
@@ -121,7 +123,7 @@
                     {{$xem_hang_chi_tiet[4]->rolename}}                                       </span>
                  </p>
                  <p class="maychu_art">
-                    Máy chủ: 
+                 Hệ phái: 
                     <span class="color_orange">
                     {{$xem_hang_chi_tiet[4]->occupation}}   
                     </span>
@@ -154,7 +156,7 @@
                     {{$xem_hang_chi_tiet[2]->rolename}}                                         </span>
                  </p>
                  <p class="maychu_art">
-                    Máy chủ: 
+                   Hệ phái: 
                     <span class="color_orange">
                     {{$xem_hang_chi_tiet[2]->occupation}}       
                     </span>
@@ -188,7 +190,7 @@
                         {{$xem_hang_chi_tiet[0]->rolename}}                                         </span>
                  </p>
                  <p class="maychu_art">
-                    Máy chủ: 
+                    Hệ phái: 
                     <span class="color_orange">
                     {{$xem_hang_chi_tiet[0]->occupation}}    
                     </span>
@@ -221,7 +223,7 @@
                     {{$xem_hang_chi_tiet[1]->rolename}}                                        </span>
                  </p>
                  <p class="maychu_art">
-                    Máy chủ: 
+                    Hệ phái: 
                     <span class="color_orange">
                     {{$xem_hang_chi_tiet[1]->occupation}}      
                     </span>
@@ -254,7 +256,7 @@
                     {{$xem_hang_chi_tiet[3]->rolename}}                                             </span>
                  </p>
                  <p class="maychu_art">
-                    Máy chủ: 
+                 Hệ phái: 
                     <span class="color_orange">
                     {{$xem_hang_chi_tiet[3]->occupation}}       
                     </span>
@@ -380,14 +382,7 @@
                <div class="title_vinhdanh text_center text_upper">
                   <p style="font-size: 30px;">NỘI DUNG CHƯƠNG TRÌNH VIP</p>
                </div>
-   <div class="vinhdanh_sieuvip">
-      
-      <div class="content_vinhdanh">
-         <div class="text">
-           </div>
-
-   </div>
-</div> 
+   
             </div>
 <!-- tab nhận quà -->
 
@@ -582,14 +577,10 @@
          <div class="container">
             <div class="logo gosu"></div>
             <div class="address">
-               <ul class="menu_footer">
-                  <li><a href="" target="_blank">Điều khoản sử dụng</a></li>
-                  <li><a href="" target="_blank">Bảo mật tài khoản</a></li>
-                  <li><a href="" target="_blank">Hướng dẫn cài đặt &amp; gỡ bỏ</a></li>
-                  <li><a href="" target="_blank">Thanh toán</a></li>
-               </ul>
-               <p>© GOSU độc quyền phát hành tại Việt Nam</p>
-               <p>Địa chỉ: 85 Nguyễn Chí Thanh, Phường Láng Hạ, Quận Đống Đa, Hà Nội</p>
+               <p>Copyright © 2010 - 2020 ChangWan. All Rights Reserved.</p>
+               <p>Phát hành Chuyên nghiệp tại Việt Nam</p>
+               <p>Đẳng cấp - Uy tín - Làm nhiều hơn nói</p>
+               <p>Địa chỉ: Tòa nhà 25T2 - Hoàng Đạo Thúy - Hà Nội</p>
             </div>
   
          </div>
@@ -628,7 +619,9 @@
        border: 1px solid #2077bd;
        border-radius: 10px;
        padding: 3px 0;">Cập nhật 30 - 40 phút một lần!</p>
-      <div class="content_new_detail mCustomScrollbar _mCS_1 mCS_no_scrollbar" style="    height: 580px;"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 580px;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+      <div class="content_new_detail mCustomScrollbar _mCS_1 mCS_no_scrollbar">
+         <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+            <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" >
          <div class="text">
             <table class="list_xephang clearfix">
                <tbody>
@@ -636,11 +629,11 @@
                      <td>Xếp hạng</td>
                      <td>Tài khoản</td>
                      <td>Tên nhân vật</td>
-                     <td>Máy chủ</td>
+                     <td>Hệ phái</td>
                   </tr>
-                  @foreach($xem_hang_chi_tiet as $value)
+                  @foreach($xem_hang_chi_tiet as $key => $value)
                    <tr>
-                     <td>1</td>
+                     <td>{{$key + 1 }}</td>
                      <td>{{substr($value->username,0,4)}}******</td>
                      <td>{{$value->rolename}}</td>
                      <td>{{$value->occupation}}</td>
@@ -650,7 +643,7 @@
                </tbody>
             </table>
                      </div>
-      </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+      </div></div></div>
       <a class="close_content"></a>
    </div>
 </div>
@@ -868,7 +861,7 @@
         </div>
       </div>
    
-   <script type="text/javascript">
+<script type="text/javascript">
         $('.loaddata2').on('click', function(e){
             var this_ = $(this);
    
@@ -880,7 +873,7 @@
                     
          $('.loaddata').on('click', function(e){
             var this_ = $(this);
-            if(this_.attr('data-url') == 'tab-ca-nhan'){
+            if(this_.attr('data-url') != 'tab-noi-dung'){
                if(!localStorage.getItem('account')){
                   $('#popup_login').fadeIn();
                   return false;
@@ -894,10 +887,10 @@
             
             
          });
-           </script>
- <script type="text/javascript" src="./asset/vendor.min.js"></script>
- <script type="text/javascript" src="./asset/app.min.js"></script>
- <script>
+</script>
+<script type="text/javascript" src="./asset/vendor.min.js"></script>
+<script type="text/javascript" src="./asset/app.min.js"></script>
+<script>
     $(document).ready(function() {
 
          $('.vip1').click(function() {
@@ -957,8 +950,8 @@
         // });
         
     });
- </script>
- <script type="text/javascript">
+</script>
+<script type="text/javascript">
    $(document).ready(function() {
       $('.close_content').click(function() {
          if($(this).attr('data') == 'notification'){
@@ -991,7 +984,7 @@
 <script>
   function onLogin(value) {
       grecaptcha.ready(function() {
-        grecaptcha.execute('6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3', {action: 'submit'}).then(function(token) {
+        grecaptcha.execute('6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp', {action: 'submit'}).then(function(token) {
              $.ajax({
                headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1019,7 +1012,7 @@
      }
    function onRegistration(value) {
        grecaptcha.ready(function() {
-        grecaptcha.execute('6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3', {action: 'submit'}).then(function(token) {
+        grecaptcha.execute('6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp', {action: 'submit'}).then(function(token) {
              $.ajax({
                headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1045,7 +1038,6 @@
    $( ".select_role" ).change(function() {
       var that = $(this);
 
-         if(localStorage.getItem('account')){
             $.ajax({
                   headers: {
                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1065,9 +1057,7 @@
             }).fail(function(){
                   console.log('ss');
             }); 
-         }else{
-            alert('mời bạn đăng nhập');
-         }
+       
       
    });
    $('.logout').click(function(){

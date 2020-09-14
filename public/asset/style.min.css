@@ -256,7 +256,7 @@
     margin: 0px auto;
     width: 100%;
     overflow-x: hidden!important;
-    background: url(./landingpage_vip_moi.jpg) no-repeat center top, #0e1116;
+    background: url(./landingpage_vip_moi.jpg) no-repeat center top, #fff;
   }
   
   .container {
@@ -442,8 +442,34 @@
     margin-top: -49px;
     padding-top: 49px;
     height: 880px;
+    position: relative;
   }
-  
+  .rotate{
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 150px;
+    z-index: -1;
+    /* mix-blend-mode: screen !important; */
+  }
+  .rotate img{
+    width:480px;
+    opacity: 0.2;
+    -webkit-animation: cog 30s infinite;			
+    -moz-animation: cog 30s infinite;
+    -ms-animation: cog 30s infinite; 			
+    animation: cog 30s infinite linear;
+    
+  }
+  @keyframes cog {
+    100%{ 
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+    }
   .topvip .list_art {
     position: relative;
     margin-top: 115px;
@@ -474,6 +500,9 @@
     left: 317px;
     top: -101px;
     z-index: 5;
+
+    -webkit-animation: animation_sen 0.6s ease-in-out 0s infinite alternate;
+    animation: animation_sen 0.6s ease-in-out 0s infinite alternate;
   }
   
   .topvip .list_art .art_top3 {
@@ -577,7 +606,11 @@
       width: 1004px;
     }
   }
-  
+  @media only screen and (max-width:600px) {
+     .rotate{
+       display: none;
+     }
+  }
   .checkvip .header_checkvip {
     width: 600px;
     height: 61px;
@@ -847,10 +880,11 @@
   }
   
   #footer {
-    height: 100px;
+    height: 50px;
     width: 100%;
     background: url(./bg_footer.png) no-repeat center -116px;
     z-index: 9;
+    padding-bottom: 100px;
   }
   
   #footer .logo {
@@ -890,7 +924,7 @@
   }
   
   #footer .address p {
-    text-align: center;
+    text-align: left;
     width: 100%;
     font-size: 14px;
     font-family: Tahoma;
@@ -1053,7 +1087,7 @@
   }
   
   .content_new_detail {
-    height: 600px;
+    height: 520px;
     margin-left: 20px;
   }
   
@@ -1744,10 +1778,10 @@
     float: left;
   }
   .tab-nhan-qua .list_thang,.tab-tai-phu .list_thang{
-    width: 856px !important;
+    width: 814px !important;
   }
   .qua_thang .body_quathang .list_thang .item {
-    width: 141px;
+    width: 134px;
     margin-bottom: 6px;
     float: left;
     margin-left: 2px;
@@ -2145,7 +2179,7 @@
   /* padding: 0px 10px;
   width: 95%; */
   margin:-22px auto 0 auto;
-
+  padding: 0 10px;
 }
 .topvip .list_name_user .item .gradient_text{
   font-size: 12px !important;
@@ -2176,10 +2210,14 @@
 .capbac{
   font-size: 13px;
   text-transform: capitalize;
+  color: #871811;
 }
 .header{
   margin-top: 70px;
 }
 .header ul li a{
   color:  #000;
+}
+#popup_vip6 .wrapper_popup{
+  height: 386px;
 }
