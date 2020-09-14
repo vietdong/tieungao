@@ -2177,3 +2177,9 @@
   font-size: 13px;
   text-transform: capitalize;
 }
+.header{
+  margin-top: 70px;
+}
+.header ul li a{
+  color:  #000;
+}

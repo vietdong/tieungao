@@ -37,18 +37,18 @@
       </section>
       <div class="header">
         <p><img src="./asset/logo.png" alt=""></p>
-        <!-- <ul>
+        <ul>
             <li>
-               <a class="text_upper" target="_blank" href="https://cuuam.gosu.vn/home/">
+               <a class="text_upper" target="_blank" href="">
                Trang chủ
                </a>
             </li>
             <li>
-               <a class="text_upper" target="_blank" href="https://www.facebook.com/cuuam.gosu.vn/">
+               <a class="text_upper" target="_blank" href="">
                Fanpage
                </a>
             </li>
-         </ul> -->
+         </ul>
       </div>
         
         <!-- TOP TƯỢNG -->
@@ -393,7 +393,7 @@
 
 <div class="box_infovip tab-diem-danh">
    
-   <div class="box_infovip">
+   <div class="box_infovip" style="min-height: 1388px;">
       <div class="qua_thang">
          <div class="header_quathang clearfix">
             <div class="right_header">
@@ -410,16 +410,22 @@
                      <p>{{$value->name}}</p>
                   </div>
                   <div class="box_qua" >
-                     <p class="icon_qua" onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}">
+                     <p class="icon_qua">
                         <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
                      </p>
                      <p class="capbac text_center text_upper">
                      {{$value->description}}
                      </p>
-                    
-                     <p class="text_center">
-                           <button class="text_upper btn_qua btn_khongdat" onclick="show_notification()">quá hạn</button>
-                     </p>
+                     @if(Carbon\Carbon::now()->format('d') <= $value->slot)
+                           <p class="text_center">
+                              <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                          </p>
+                          @else
+                          <p class="text_center">
+                              <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
+                          </p>
+                          @endif
+            
                   
                      
                   </div>
@@ -457,14 +463,20 @@
                            <p>{{$value->name}}</p>
                         </div>
                         <div class="box_qua">
-                           <p class="icon_qua" onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}">
+                           <p class="icon_qua">
                               <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
                            </p>
                            <p class="capbac text_center text_upper">
                            {{$value->description}}                   </p>
+                          @if(Carbon\Carbon::now()->format('m') <= $value->slot)
                            <p class="text_center">
-                                                            <button class="text_upper btn_qua btn_khongdat" onclick="show_erros('Chức năng đã đóng.')">quá hạn</button>
-                                                      </p>
+                                                            <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                          </p>
+                          @else
+                          <p class="text_center">
+                                                            <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
+                          </p>
+                          @endif
                         </div>
                      </div>
                               
@@ -482,7 +494,7 @@
                <p class="vip_end text_center text_upper">
                   vip N/A            </p>
                <p class="text_center">
-                                    <button class="text_upper btn_qua btn_khongdat" onclick="show_erros('Chức năng đã đóng.')">đã đóng</button> <!-- btn_nhan btn_chuanhan -->
+                                    <button class="text_upper btn_qua btn_khongdat" >đã đóng</button> <!-- btn_nhan btn_chuanhan -->
                               </p>
             </div>
          </div>
@@ -1122,6 +1134,10 @@
        
       })
  }
+ $('.back-to-top').on('click', function(e) {
+		e.preventDefault();
+		$('html, body').animate({scrollTop:0}, '300');
+		});
 </script>
 </body>
 </html>
