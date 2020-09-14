@@ -14,6 +14,12 @@
       <link rel="stylesheet" href="{{asset('asset/style.min.css')}}">
       <script type="text/javascript" src="{{asset('asset/jquery-1.11.2.min.js')}}"></script>
       <script src="https://www.google.com/recaptcha/api.js?render=6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp"></script>
+
+      <meta name="referrer" content="unsafe-url" />
+<meta name="referrer" content="origin" />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
 </head>
 <body>
       <section class="marquee">
