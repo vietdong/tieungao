@@ -13,12 +13,10 @@
       <link rel="stylesheet" href="{{asset('asset/vendor.min.css')}}">
       <link rel="stylesheet" href="{{asset('asset/style.min.css')}}">
       <script type="text/javascript" src="{{asset('asset/jquery-1.11.2.min.js')}}"></script>
+      <!-- 6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3 -->
       <script src="https://www.google.com/recaptcha/api.js?render=6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp"></script>
 
-      <meta name="referrer" content="unsafe-url" />
-<meta name="referrer" content="origin" />
-<meta name="referrer" content="no-referrer-when-downgrade" />
-<meta name="referrer" content="origin-when-cross-origin" />
+
 
 </head>
 <body>
@@ -69,7 +67,7 @@
             <img src="./asset/art_top2.png" alt="">
         </div>
         <div class="art art_top1">
-            <img src="./asset/art_top1.png" alt="" style="width: 300px;">
+            <img src="./asset/art_top1.png" alt="" style="width: 250px;">
         </div>
         <div class="art art_top3">
             <img src="./asset/art_top3.png" alt="">
@@ -996,7 +994,7 @@
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
                 method: "POST",
-                url: "{{route('login')}}",
+                url: "/login",
                 dataType: "json",
                 data: {
                    username: $('.login_name').val(),
@@ -1024,7 +1022,7 @@
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
                 method: "POST",
-                url: "{{route('registration')}}",
+                url: "/registration",
                 dataType: "json",
                 data: {
                    username: $('.registration_name').val(),
@@ -1049,7 +1047,7 @@
                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
                   method: "POST",
-                  url: "{{route('select_role')}}",
+                  url: "/select-role",
                   dataType: "json",
                   data: {
                      zone_id:that.val(),
@@ -1077,7 +1075,7 @@
                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
                   method: "POST",
-                  url: "{{route('receiving_gifts')}}",
+                  url: "/eceiving-gifts",
                   dataType: "json",
                   data: {
                      p_uid:JSON.parse(localStorage.getItem('account')).uid,
@@ -1112,7 +1110,7 @@
          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       method: "POST",
-      url: "{{route('detail.user')}}",
+      url: "/detail-user",
       dataType: "json",
       data: {
          p_uid:JSON.parse(localStorage.getItem('account')).uid,

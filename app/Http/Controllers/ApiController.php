@@ -25,9 +25,10 @@ class ApiController extends Controller
         $list_vip[6] = DB::table('vip.vip_points')->where('level',6)->where('active',1)->count();
 
 
-        $mytime = Carbon::now()->format('Y-m-d 00:00:00.0');
-        $birthday = DB::table('sw.users')->where('birthday',$mytime)->get();
-        $xem_hang_chi_tiet = DB::connection('mysql_vip')->table('v_top_vip')->get();
+        $mytime_month = Carbon::now()->format('m');
+        $mytime_day = Carbon::now()->format('d');
+        $birthday = DB::table('sw.users')->whereMonth('birthday',$mytime_month)->whereDay('birthday',$mytime_day)->get();
+        $xem_hang_chi_tiet = DB::connection('mysql_vip')->table('v_top_vip')->paginate(20);
         return view('welcome',compact('qua_ngay','qua_thang','qua_nam','qua_sinh_nhat','vip','game_zones','list_vip','xem_hang_chi_tiet','birthday'));
     }
     public function registration(Request $request){
