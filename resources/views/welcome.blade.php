@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="{{asset('asset/style.min.css')}}">
       <script type="text/javascript" src="{{asset('asset/jquery-1.11.2.min.js')}}"></script>
       <!-- 6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3 -->
-      <script src="https://www.google.com/recaptcha/api.js?render=6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3"></script>
+      <script src="https://www.google.com/recaptcha/api.js?render=6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp"></script>
 
 
 
@@ -992,7 +992,7 @@
 <script>
   function onLogin(value) {
       grecaptcha.ready(function() {
-        grecaptcha.execute('6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3', {action: 'submit'}).then(function(token) {
+        grecaptcha.execute('6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp', {action: 'submit'}).then(function(token) {
              $.ajax({
                headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1020,7 +1020,7 @@
      }
    function onRegistration(value) {
        grecaptcha.ready(function() {
-        grecaptcha.execute('6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3', {action: 'submit'}).then(function(token) {
+        grecaptcha.execute('6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp', {action: 'submit'}).then(function(token) {
              $.ajax({
                headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
