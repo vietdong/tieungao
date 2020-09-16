@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="{{asset('asset/style.min.css')}}">
       <script type="text/javascript" src="{{asset('asset/jquery-1.11.2.min.js')}}"></script>
       <!-- 6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3 -->
-      <script src="https://www.google.com/recaptcha/api.js?render=6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp"></script>
+      <script src="https://www.google.com/recaptcha/api.js?render=6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3"></script>
 
 
 
@@ -78,7 +78,7 @@
     </div>
       
     <div class="rotate">
-       <img src="./asset/rotare.png">
+       <img src="./asset/rotate.png">
     </div>
     <div class="list_name_user">
 
@@ -329,9 +329,9 @@
                   <img src="./asset/list_dot.png" alt="" class="list_dot">
                </p>
                <div class="text_diem clearfix">
-                  @foreach($vip as $value)
+                  @foreach($list_vip as $value)
                   <div class="item_diem text_center text_upper">
-                     <p><span class="number_diem">{{number_format($value->points,0,0,'.')}}</span> điểm</p>
+                     <p><span class="number_diem">{{number_format($value[0]->points,0,0,'.')}}</span> điểm</p>
                   </div>
                   @endforeach
                  
@@ -720,7 +720,7 @@
                </div>
                <div class="content_message">
                   <p>Hiện tại có</p>
-                  <p><span class="color_orange">{{$value}}</span></p>
+                  <p><span class="color_orange">{{$value[0]->count}}</span></p>
                   <p>
                      <img src="./asset/number_vip{{$key}}.png" alt="">
                   </p>
@@ -988,7 +988,7 @@
 <script>
   function onLogin(value) {
       grecaptcha.ready(function() {
-        grecaptcha.execute('6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp', {action: 'submit'}).then(function(token) {
+        grecaptcha.execute('6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3', {action: 'submit'}).then(function(token) {
              $.ajax({
                headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1016,7 +1016,7 @@
      }
    function onRegistration(value) {
        grecaptcha.ready(function() {
-        grecaptcha.execute('6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp', {action: 'submit'}).then(function(token) {
+        grecaptcha.execute('6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3', {action: 'submit'}).then(function(token) {
              $.ajax({
                headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

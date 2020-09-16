@@ -17,14 +17,12 @@ class ApiController extends Controller
         $vip = DB::table('vip.vip_points')->where('active',1)->orderBy('points', 'ASC')->skip(0)->take(6)->get();
         $game_zones = DB::table('sw.game_zones')->where('test_sv',0)->get();
     
-        $list_vip[1] = DB::table('vip.vip_points')->where('level',1)->where('active',1)->count();
-        $list_vip[2] = DB::table('vip.vip_points')->where('level',2)->where('active',1)->count();
-        $list_vip[3] = DB::table('vip.vip_points')->where('level',3)->where('active',1)->count();
-        $list_vip[4] = DB::table('vip.vip_points')->where('level',4)->where('active',1)->count();
-        $list_vip[5] = DB::table('vip.vip_points')->where('level',5)->where('active',1)->count();
-        $list_vip[6] = DB::table('vip.vip_points')->where('level',6)->where('active',1)->count();
-
-
+        $list_vip[1] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',1)->where('active',1)->get();
+        $list_vip[2] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',2)->where('active',1)->get();
+        $list_vip[3] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',3)->where('active',1)->get();
+        $list_vip[4] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',4)->where('active',1)->get();
+        $list_vip[5] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',5)->where('active',1)->get();
+        $list_vip[6] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',6)->where('active',1)->get();
         $mytime_month = Carbon::now()->format('m');
         $mytime_day = Carbon::now()->format('d');
         $birthday = DB::table('sw.users')->whereMonth('birthday',$mytime_month)->whereDay('birthday',$mytime_day)->get();
@@ -36,18 +34,25 @@ class ApiController extends Controller
             $text = 'Tên tài khoản không được quá dài';
             $status = false;
         }else{
-            $data=[
-                'name'=>$request->username,
-                'password'=>$request->password,
-                'birthday'=>'1990-07-06',
-                'gender'=>1,
-                'email'=>$request->email,
-                'phonenumber'=>$request->phonenumber,
-                'refferer' => 'null',
-             ];
-             DB::select('CALL sw.sp_create_user(:name,:password,:birthday,:gender,:email,:phonenumber,:refferer)', $data);
-             $text = 'Đăng kí tài khoản thành công';
-             $status = true;
+            $check_duplicate = DB::table('sw.users')->where('email',$request->email)->orWhere('name',$request->username)->get();
+            if(count($check_duplicate)){
+                $text = 'Tên tài khoản hoặc email đã được sử dụng';
+                $status = false;
+            }else{
+                $data=[
+                    'name'=>$request->username,
+                    'password'=>$request->password,
+                    'birthday'=>'1990-07-06',
+                    'gender'=>1,
+                    'email'=>$request->email,
+                    'phonenumber'=>$request->phonenumber,
+                    'refferer' => 'null',
+                ];
+                DB::select('CALL sw.sp_create_user(:name,:password,:birthday,:gender,:email,:phonenumber,:refferer)', $data);
+                $text = 'Đăng kí tài khoản thành công';
+                $status = true;
+            }
+            
         }
         
         $done['text'] = $text;
@@ -56,8 +61,8 @@ class ApiController extends Controller
     }
     public function login(Request $request){
         $user = DB::table('sw.users')->where('name', $request->username)
-                 ->where('passwd',md5($request->username.$request->password,true))
-                  ->first();
+                ->where('passwd',md5($request->username.$request->password,true))
+                ->first();
              
         $data['uid'] =$user->ID;
         $data['name'] =$user->name;
@@ -70,7 +75,7 @@ class ApiController extends Controller
     }
     public function receivingGifts(Request $request){
         $data = [
-            'p_uid' =>$request->p_uid,
+            'p_uid' => $request->p_uid,
             'p_gift_id' => $request->p_gift_id,
             'p_role_id' => $request->p_role_id,
             'p_server_id' => $request->p_server_id,
@@ -89,7 +94,7 @@ class ApiController extends Controller
                     'role_id' => $request->p_role_id,
                     'zone_id' => $request->p_server_id,
                     'gift_id' => $request->p_gift_id,
-                    'amount' =>1
+                    'amount'  => 1
                 ]
             ]);
          }
@@ -97,7 +102,7 @@ class ApiController extends Controller
         echo json_encode($results[0]->po_description);
     }
     function detailUser(Request $request){
-        $detail_user['vip'] = DB::connection('mysql_vip')->table('v_top_vip')->where('uid',$request->p_uid)->first();
+        $detail_user['vip']  = DB::connection('mysql_vip')->table('v_top_vip')->where('uid',$request->p_uid)->first();
         $detail_user['list'] = DB::table('vip.receive_gift_logs')
                                ->join('vip.gifts', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
                                ->where('uid',$request->p_uid)->get();
