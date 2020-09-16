@@ -82,22 +82,22 @@ class ApiController extends Controller
         ];
         $receiving = DB::statement('CALL vip.sp_claim_gifts(:p_uid,:p_gift_id,:p_role_id,:p_server_id,@po_result,@po_description)', $data);
         $results = DB::select('select @po_result as po_result, @po_description as po_description');
-         if($results[0]->po_description == 'Nhận quà thành công'){
-            $client = new Client();
+        //  if($results[0]->po_description == 'Nhận quà thành công'){
+        //     $client = new Client();
             
-            $response = $client->post('https://gameapi.tieungaodailuc.com/api/sendgift', [
-                'auth' => [
-                    'tieungaogameapi', 
-                    'tnapi#20991406'
-                ],
-                'form_params' => [
-                    'role_id' => $request->p_role_id,
-                    'zone_id' => $request->p_server_id,
-                    'gift_id' => $request->p_gift_id,
-                    'amount'  => 1
-                ]
-            ]);
-         }
+        //     $response = $client->post('https://gameapi.tieungaodailuc.com/api/sendgift', [
+        //         'auth' => [
+        //             'tieungaogameapi', 
+        //             'tnapi#20991406'
+        //         ],
+        //         'form_params' => [
+        //             'role_id' => $request->p_role_id,
+        //             'zone_id' => $request->p_server_id,
+        //             'gift_id' => $request->p_gift_id,
+        //             'amount'  => 1
+        //         ]
+        //     ]);
+        //  }
         
         echo json_encode($results[0]->po_description);
     }
