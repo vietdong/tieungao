@@ -415,11 +415,15 @@
                      <p class="capbac text_center text_upper">
                      {{$value->description}}
                      </p>
-                     @if(Carbon\Carbon::now()->format('d') <= $value->slot)
+                     @if(Carbon\Carbon::now()->format('d') < $value->slot)
+                     <p class="text_center">
+                              <button class="text_upper btn_qua btn_khongdat"  style="background-image: url('./asset/bg_vg.png');color:#000">chưa mở</button>
+                          </p>
+                     @elseif(Carbon\Carbon::now()->format('d') == $value->slot)
                            <p class="text_center">
                               <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
                           </p>
-                          @else
+                     @else
                           <p class="text_center">
                               <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
                           </p>

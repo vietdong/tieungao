@@ -15,8 +15,8 @@ class ApiController extends Controller
         $qua_nam = DB::table('vip.gifts')->where('type',3)->get();
         $qua_sinh_nhat = DB::table('vip.gifts')->where('type',0)->first();
         $vip = DB::table('vip.vip_points')->where('active',1)->orderBy('points', 'ASC')->skip(0)->take(6)->get();
-        $game_zones = DB::table('sw.game_zones')->where('test_sv',0)->get();
-    
+        // $game_zones = DB::table('sw.game_zones')->where('test_sv',0)->get();
+        $game_zones = DB::table('sw.game_zones')->get();
         $list_vip[1] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',1)->where('active',1)->get();
         $list_vip[2] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',2)->where('active',1)->get();
         $list_vip[3] = DB::table('vip.vip_points')->select(DB::raw("SUM(points) as points"),DB::raw('COUNT(uid) as count'))->where('level',3)->where('active',1)->get();
