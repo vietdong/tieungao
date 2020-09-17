@@ -470,16 +470,23 @@
                               <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
                            </p>
                            <p class="capbac text_center text_upper">
-                           {{$value->description}}                   </p>
-                          @if(Carbon\Carbon::now()->format('m') <= $value->slot)
-                           <p class="text_center">
-                                                            <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
-                          </p>
+                           {{$value->description}}       
+                                   </p>
+                                   <p class="text_center">
+                          @if(Carbon\Carbon::now()->format('m') < $value->slot)
+                     
+                             <button class="text_upper btn_qua btn_khongdat" style="background-image: url('./asset/bg_vg.png');color:#000">chưa mở</button>
+                    
+                          @elseif(Carbon\Carbon::now()->format('m') == $value->slot)
+                          
+                               <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                        
                           @else
-                          <p class="text_center">
-                                                            <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
-                          </p>
+                          
+                               <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
+                       
                           @endif
+                          </p>
                         </div>
                      </div>
                               
@@ -695,6 +702,207 @@
                   <span class="text_upper">Đặc quyền</span>
                </div>
               
+
+         <div class="content_new_detail mCustomScrollbar _mCS_1"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+         <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+         <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y">
+         <div class="text">
+              <p> - Xin chào các Đại Hiệp! </p>
+               Hệ thống VIP là một tính năng mới của Tiếu Ngạo Đại Lục nhằm mục đích giúp các Đại Hiệp khẳng định Vị Thế của mình. Đặc biệt hơn khi trở thành VIP các Đại Hiệp sẽ nhận được rất nhiều ưu đãi mà không phải ai cũng có. Mời các Đại Hiệp xem chi tiết Ưu Đãi dành cho VIP dưới đây: 
+               <p>- Lưu Ý: Quà VIP được Reset vào ngày mùng 1 hàng tháng ( đặc biệt sẽ không bị tụt điểm VIP).</p>
+               Để tiếp tục nhận Ưu Đãi quà VIP sau khi Reset các Đại Hiệp chỉ cần nạp 200k là có thể tiếp tục Nhận Quà tại Mốc VIP hiện tại.
+            <table class=" clearfix" style="width:100%">
+               <tbody>
+                  <tr>
+                     <td>VIP</td>
+                     <td> Số Lượng<br>(xu cần nạp)</td>
+                     <td>Ưu Đãi</td>
+
+                  </tr>
+                  <tr>
+                     <td rowspan="7">vip 1</td>
+                     <td rowspan="7">100 xu</td>
+                     <td >Xuyên kim thạch cực phẩm x3</td>
+                  </tr>
+                  <tr>
+                     <td>Tinh luyện thạch cấp 2 x30</td>
+                  </tr>  
+                  <tr>
+                     <td>Phi hành kỳ x10</td>
+                  </tr>  
+                  <tr>
+                     <td>Hoán tiêu lệnh x5</td>
+                  </tr>         
+                  <tr>
+                     <td>Trạng thái phù VIP x1</td>
+                  </tr> 
+                  <tr>
+                     <td>Túi ngọc cấp 2 x10</td>
+                  </tr> 
+                  <tr>
+                     <td>Danh hiệu Siêu Phàm Hiệp Khách x1 (28 ngày)</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="7">vip 2</td>
+                     <td rowspan="7">1000 xu</td>
+                     <td >Xuyên kim thạch cực phẩm x5</td>
+                  </tr>
+                  <tr>
+                     <td>Mộc chất xỉ luân x50</td>
+                  </tr>  
+                  <tr>
+                     <td>Tinh trần sa x50</td>
+                  </tr>  
+                  <tr>
+                     <td>Hoán tiêu lệnh x10</td>
+                  </tr>         
+                  <tr>
+                     <td>Trạng thái phù VIP x1</td>
+                  </tr> 
+                  <tr>
+                     <td>TInh luyện thạch cấp 3 x30</td>
+                  </tr> 
+                  <tr>
+                     <td>Danh hiệu Xuất Trần Hiệp Khách x1 (28 ngày)</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="8">vip 3</td>
+                     <td rowspan="8">2000 xu</td>
+                     <td >Mộc chất xỉ luân x99</td>
+                  </tr>
+                  <tr>
+                     <td>Tinh trần sa x99</td>
+                  </tr>  
+                  <tr>
+                     <td>Hộp quà bảo vật x5</td>
+                  </tr>  
+                  <tr>
+                     <td>Đại hoàn đơn cấp 2 x20</td>
+                  </tr>         
+                  <tr>
+                     <td>Trạng thái phù VIP x1</td>
+                  </tr> 
+                  <tr>
+                     <td>Hoán tiêu lệnh tím x3</td>
+                  </tr> 
+                  <tr>
+                     <td>Luyện hóa thạch x50</td>
+                  </tr>
+                  <tr>
+                     <td>Danh hiệu Lăng Tuyệt Vu Ảnh x1 (28 ngày)</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="10">vip 4</td>
+                     <td rowspan="10">6000 xu</td>
+                     <td >Mộc chất xỉ luân x99</td>
+                  </tr>
+                  <tr>
+                     <td>Tinh trần sa x99</td>
+                  </tr>  
+                  <tr>
+                     <td>Đại hoàn đơn cấp 2 x 30</td>
+                  </tr>  
+                  <tr>
+                     <td>Hộp quà bảo vật x10</td>
+                  </tr>         
+                  <tr>
+                     <td>Trạng thái phù VIP x1</td>
+                  </tr> 
+                  <tr>
+                     <td>Hoán tiêu lệnh tím x5</td>
+                  </tr> 
+                  <tr>
+                     <td>Tinh luyện thạch cấp 5 x50</td>
+                  </tr>
+                  <tr>
+                     <td>Thú cưỡi Tàng thanh câu x1 (28 ngày)</td>
+                  </tr>
+                  <tr>
+                     <td>Danh hiệu Hỗn Thiên Cao Thủ  (28 ngày) </td>
+                  </tr>
+                  <tr>
+                     <td>Thú cưng Cầu Chim Cánh Cụt x1 (28 ngày)</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="12">vip 5</td>
+                     <td rowspan="12">12000 xu</td>
+                     <td >Mộc chất xỉ luân x99</td>
+                  </tr>
+                  <tr>
+                     <td>Tinh trần sa x99</td>
+                  </tr>  
+                  <tr>
+                     <td>Thời trang Thiển Yên x1 (Thuần Hắc) (28 ngày)</td>
+                  </tr>  
+                  <tr>
+                     <td>Thú cưng Chương Ngư Muội x1 ( 28 ngày)</td>
+                  </tr>         
+                  <tr>
+                     <td>Thú cưỡi Trúc lâm linh x1 (28 ngày)</td>
+                  </tr> 
+                  <tr>
+                     <td>Trạng thái phù VIP x1</td>
+                  </tr> 
+                  <tr>
+                     <td>Hoán tiêu lệnh cam x5</td>
+                  </tr>
+                  <tr>
+                     <td>Đại hoàn đơn cấp 3 x20</td>
+                  </tr>
+                  <tr>
+                     <td>Luyện hóa thạch cao cấp x99 </td>
+                  </tr>
+                  <tr>
+                     <td>Hộp quà bảo vật x15</td>
+                  </tr>
+                  <tr>
+                     <td>Lễ bao tinh hoa trang bị x10 (xịn) </td>
+                  </tr>
+                  <tr>
+                     <td>Danh hiệu Tiềm Long Ngâm Uyên x1 (28 ngày)</td>
+                  </tr>
+                  <tr>
+                     <td rowspan="12">vip 6</td>
+                     <td rowspan="12">20000 xu</td>
+                     <td >Mộc chất xỉ luân x99</td>
+                  </tr>
+                  <tr>
+                     <td>Mộc chất xỉ luân x99</td>
+                  </tr>  
+                  <tr>
+                     <td>Tinh trần sa x99</td>
+                  </tr>  
+                  <tr>
+                     <td>Trạng thái phù VIP x1</td>
+                  </tr>         
+                  <tr>
+                     <td>Thú cưỡi Phù tiên thanh ngưu x1 (28 ngày)</td>
+                  </tr> 
+                  <tr>
+                     <td>Thú cưng Trư Bảo Khôi Khôi x1 (28 ngày)</td>
+                  </tr> 
+                  <tr>
+                     <td>Đại hoàn đơn cấp 3 x30</td>
+                  </tr>
+                  <tr>
+                     <td>Hoán tiêu cam x10</td>
+                  </tr>
+                  <tr>
+                     <td>Lễ bao tinh hoa trang bị x15 (xịn) </td>
+                  </tr>
+                  <tr>
+                     <td>Hộp quà bảo vật x20</td>
+                  </tr>
+                  <tr>
+                     <td>Luyện hóa thạch cao cấp x99</td>
+                  </tr>
+                  <tr>
+                     <td>Danh hiệu Vô Song Vương Giả x1 (28 ngày)</td>
+                  </tr>
+               </tbody>
+            </table>
+                     </div>
+      </div></div></div></div></div>
                <a class="close_content"></a>
             </div>
          </div>
