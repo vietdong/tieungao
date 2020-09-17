@@ -709,8 +709,7 @@
          <div class="text">
               <p> - Xin chào các Đại Hiệp! </p>
                Hệ thống VIP là một tính năng mới của Tiếu Ngạo Đại Lục nhằm mục đích giúp các Đại Hiệp khẳng định Vị Thế của mình. Đặc biệt hơn khi trở thành VIP các Đại Hiệp sẽ nhận được rất nhiều ưu đãi mà không phải ai cũng có. Mời các Đại Hiệp xem chi tiết Ưu Đãi dành cho VIP dưới đây: 
-               <p>- Lưu Ý: Quà VIP được Reset vào ngày mùng 1 hàng tháng ( đặc biệt sẽ không bị tụt điểm VIP).</p>
-               Để tiếp tục nhận Ưu Đãi quà VIP sau khi Reset các Đại Hiệp chỉ cần nạp 200k là có thể tiếp tục Nhận Quà tại Mốc VIP hiện tại.
+               
             <table class=" clearfix" style="width:100%">
                <tbody>
                   <tr>
@@ -901,6 +900,8 @@
                   </tr>
                </tbody>
             </table>
+            <p>- Lưu Ý: Quà VIP được Reset vào ngày mùng 1 hàng tháng ( đặc biệt sẽ không bị tụt điểm VIP).</p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Để tiếp tục nhận Ưu Đãi quà VIP sau khi Reset các Đại Hiệp chỉ cần nạp 200k là có thể tiếp tục Nhận Quà tại Mốc VIP hiện tại.
                      </div>
       </div></div></div></div></div>
                <a class="close_content"></a>
