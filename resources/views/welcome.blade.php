@@ -22,7 +22,6 @@
 <body>
       <section class="marquee">
          <div class="container">
-            
    <marquee>
       @foreach($birthday as $value)
   	   <span class="item">Chúc mừng sinh nhật 
@@ -64,13 +63,13 @@
             <img src="./asset/art_top4.png" alt="">
         </div>
         <div class="art art_top2">
-            <img src="./asset/art_top2.png" alt="">
+            <img src="./asset/art_top3.png" alt="">
         </div>
         <div class="art art_top1">
             <img src="./asset/art_top1.png" alt="" style="width: 250px;">
         </div>
         <div class="art art_top3">
-            <img src="./asset/art_top3.png" alt="">
+            <img src="./asset/art_top2.png" alt="">
         </div>
         <div class="art art_top5">
             <img src="./asset/art_top5.png" alt="">
@@ -329,15 +328,29 @@
                   <img src="./asset/list_dot.png" alt="" class="list_dot">
                </p>
                <div class="text_diem clearfix">
-                  @foreach($list_vip as $value)
+
                   <div class="item_diem text_center text_upper">
-                     <p><span class="number_diem">{{number_format($value[0]->points,0,0,'.')}}</span> điểm</p>
+                     <p><span class="number_diem">50</span> điểm</p>
                   </div>
-                  @endforeach
-                 
+                
+                  <div class="item_diem text_center text_upper">
+                     <p><span class="number_diem">500</span> điểm</p>
+                  </div>
+                  <div class="item_diem text_center text_upper">
+                     <p><span class="number_diem">1.000</span> điểm</p>
+                  </div>
+                  <div class="item_diem text_center text_upper">
+                     <p><span class="number_diem">3.000</span> điểm</p>
+                  </div>
+                  <div class="item_diem text_center text_upper">
+                     <p><span class="number_diem">6.000</span> điểm</p>
+                  </div>
+                  <div class="item_diem text_center text_upper">
+                     <p><span class="number_diem">10.000</span> điểm</p>
+                  </div>
                </div>
-               <p class="text_info tugiac_left">Hệ thông cấp bậc VIP được tính tích nạp vào game từ 1/1/2016 đến hiện tại</p>
-               <p class="text_info tugiac_left">1 điểm VIP = 10 GOSU</p>
+               <p class="text_info tugiac_left">Hệ thống VIP sẽ bị reset vào ngày mùng 1 hàng tháng.</p>
+               <p class="text_info tugiac_left">1 điểm VIP = 1000 VNĐ</p>
                <div class="link_show link_dacquyen text_upper text_center" style="margin-top: 26px;">
                
                </div>
@@ -413,7 +426,7 @@
                         <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
                      </p>
                      <p class="capbac text_center text_upper">
-                     {{$value->description}}
+                     {{$value->name}}
                      </p>
                      @if(Carbon\Carbon::now()->format('d') < $value->slot)
                      <p class="text_center">
@@ -421,7 +434,7 @@
                           </p>
                      @elseif(Carbon\Carbon::now()->format('d') == $value->slot)
                            <p class="text_center">
-                              <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                              <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" level="{{$value->level}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
                           </p>
                      @else
                           <p class="text_center">
@@ -470,7 +483,7 @@
                               <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
                            </p>
                            <p class="capbac text_center text_upper">
-                           {{$value->description}}       
+                           {{$value->name}}       
                                    </p>
                                    <p class="text_center">
                           @if(Carbon\Carbon::now()->format('m') < $value->slot)
@@ -479,7 +492,7 @@
                     
                           @elseif(Carbon\Carbon::now()->format('m') == $value->slot)
                           
-                               <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                               <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
                         
                           @else
                           
@@ -540,7 +553,7 @@
                <p class="text_center">Còn <span class="color_orange">130</span> ngày</p>
             </div>
             <p class="text_center">
-               <button class="nhanqua_sn text_upper btn-gift-receive" onclick="info_detail(this)" name-gift="{{$qua_sinh_nhat->name}}" detail-gift="{{$qua_sinh_nhat->description}}" id-gift="{{$qua_sinh_nhat->id}}">
+               <button class="nhanqua_sn text_upper btn-gift-receive" onclick="info_detail(this)" name-gift="{{$qua_sinh_nhat->name}}" level="{{$qua_sinh_nhat->level}}" detail-gift="{{$qua_sinh_nhat->description}}" id-gift="{{$qua_sinh_nhat->id}}">
                NHẬN QUÀ
                </button>
             </p>
@@ -1288,7 +1301,7 @@
                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
                   method: "POST",
-                  url: "/eceiving-gifts",
+                  url: "/receiving-gifts",
                   dataType: "json",
                   data: {
                      p_uid:JSON.parse(localStorage.getItem('account')).uid,

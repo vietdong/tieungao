@@ -2084,7 +2084,7 @@
     width: 95%;
   }
   .checkvip .body_checkvip .text_diem .item_diem:nth-child(-n+6){
-    margin-left: 27px;
+    margin-left: 58px;
   }
   .text_bd{
     width: 40%;
@@ -2227,3 +2227,4 @@
 .receiving_gifts{
   cursor: pointer;
 }
+

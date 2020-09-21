@@ -74,6 +74,7 @@ class ApiController extends Controller
         echo json_encode($role);
     }
     public function receivingGifts(Request $request){
+        $check_vip= DB::connection('mysql_vip')->table('v_top_vip')->where('uid',$request->p_uid)->first();;
         $data = [
             'p_uid' => $request->p_uid,
             'p_gift_id' => $request->p_gift_id,
