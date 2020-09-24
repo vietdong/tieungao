@@ -107,6 +107,7 @@ class ApiController extends Controller
         $detail_user['list'] = DB::table('vip.receive_gift_logs')
                                ->join('vip.gifts', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
                                ->where('uid',$request->p_uid)->get();
+        $detail_user['user']   =  date('d-m-Y',strtotime(DB::table('sw.users')->where('id',$request->p_uid)->first()->birthday));
         echo json_encode($detail_user);
     }
 }

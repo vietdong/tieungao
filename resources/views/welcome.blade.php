@@ -440,7 +440,7 @@
                           <p class="text_center">
                               <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
                           </p>
-                          @endif
+                     @endif
             
                   
                      
@@ -474,7 +474,7 @@
          <div class="body_quathang">
             <div class="list_thang">
                @foreach($qua_thang as $value)
-                                                <div class="item">
+                        <div class="item hide_level level_{{$value->level}}" >
                         <div class="month text_center">
                            <p>{{$value->name}}</p>
                         </div>
@@ -483,22 +483,16 @@
                               <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
                            </p>
                            <p class="capbac text_center text_upper">
-                           {{$value->name}}       
-                                   </p>
-                                   <p class="text_center">
-                          @if(Carbon\Carbon::now()->format('m') < $value->slot)
-                     
-                             <button class="text_upper btn_qua btn_khongdat" style="background-image: url('./asset/bg_vg.png');color:#000">chưa mở</button>
-                    
-                          @elseif(Carbon\Carbon::now()->format('m') == $value->slot)
-                          
-                               <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
-                        
-                          @else
-                          
-                               <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
-                       
-                          @endif
+                                  {{$value->name}}       
+                           </p>
+                           <p class="text_center">
+                              @if(Carbon\Carbon::now()->format('m') < $value->slot)
+                                 <button class="text_upper btn_qua btn_khongdat" style="background-image: url('./asset/bg_vg.png');color:#000">chưa mở</button>
+                              @elseif(Carbon\Carbon::now()->format('m') == $value->slot)
+                                 <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                              @else
+                                 <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
+                              @endif
                           </p>
                         </div>
                      </div>
@@ -544,7 +538,7 @@
          
          <div class="box_sinhnhat">
             <div class="your_birthday">
-               <p class="text_center">Sinh nhật của bạn: <span class="color_orange">01/01/1990</span></p>
+               <p class="text_center">Sinh nhật của bạn: <span class="color_orange birthday_text"></span></p>
             </div>
             <p class="qua_sinhnhat text_center">
                <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/quasinhnhat.png" alt="">
@@ -1342,7 +1336,8 @@
          p_uid:JSON.parse(localStorage.getItem('account')).uid,
       },
       }).done(function( msg ) {
-         $('.imgvip').html('<img src="./asset/number_vip'+msg.vip.level+'.png" alt="">')
+         $('.imgvip').html('<img src="./asset/number_vip'+msg.vip.level+'.png" alt="">');
+         $('.birthday_text').html(msg.user);
          $('.list_nhan_qua .list').html();
          var html = '<ul>';
          var list =  msg.list;
@@ -1351,7 +1346,8 @@
             }
                html +='</ul>';
         $('.list_nhan_qua .list').html(html);
-       
+        $('.hide_level').hide();
+        $('.level_'+msg.vip.level).show();
       })
  }
  $('.back-to-top').on('click', function(e) {
