@@ -42,12 +42,12 @@
         <p><img src="./asset/logo.png" alt=""></p>
         <ul>
             <li>
-               <a class="text_upper" target="_blank" href="">
+               <a class="text_upper" target="_blank" href="https://tieungaodailuc.com/">
                Trang chủ
                </a>
             </li>
             <li>
-               <a class="text_upper" target="_blank" href="">
+               <a class="text_upper" target="_blank" href="https://www.facebook.com/tngh3d">
                Fanpage
                </a>
             </li>
@@ -284,7 +284,7 @@
            <div class="container">
            <div class="header_checkvip">
                <div class="text_left tugiac_left">
-                  <p class="text_upper">phú hào ngũ tuyệt <span class="text_month"> <span class="month_show">7/2020</span></span></p>
+                  <p class="text_upper">phú hào ngũ tuyệt <span class="text_month"> <span class="month_show">{{Carbon\Carbon::now()->format('m/Y')}}</span></span></p>
                </div>
                <div href="#" class="link_show link_bxh text_upper text_center">
                   
@@ -409,7 +409,7 @@
       <div class="qua_thang">
          <div class="header_quathang clearfix">
             <div class="right_header">
-               <h2 class="tit_right_header text_upper">NHẬN QUÀ ƯU ĐÃI THÁNG 10</h2>
+               <h2 class="tit_right_header text_upper">NHẬN QUÀ ƯU ĐÃI THÁNG {{Carbon\Carbon::now()->format('m')}}</h2>
                
                </form>
             </div>
@@ -475,7 +475,7 @@
             <div class="right_header">
                <h2 class="tit_right_header text_upper">Nhận quà ưu đãi</h2>
                
-               <span class="tit_small">Mở nhận quà từ ngày <span class="color_orange">1-5 hàng tháng</span>.<br> Kết thúc nhận quà đến hết tháng đó! </span>
+               <span class="tit_small"> Kết thúc nhận quà đến hết tháng đó! </span>
             </div>
          </div>
          <div class="body_quathang">
@@ -545,7 +545,7 @@
                
             </div>
             <div class="text_bd">
-               <p class="text_center text_small">Quà sinh nhật chỉ dành cho tài khoản từ VIP1-VIP9. VIP0 không thể nhận quà. Mở nhận vào ngày sinh nhật của tài khoản và kết thúc nhận sau 30 ngày.</p>
+               <p class="text_center text_small">Quà sinh nhật chỉ dành cho tài khoản từ VIP1-VIP6. Mở nhận vào ngày sinh nhật của tài khoản và kết thúc nhận sau 30 ngày.</p>
             </div>
          </div>
          
@@ -623,14 +623,14 @@
       <div class="anchor-menu">
          <ul>
             <li>
-               <a class="a100 tai_game active" target="_blank" href="#">
+               <a class="a100 tai_game active" target="_blank" href="https://tieungaodailuc.com/Download/HuongDan">
                   <p class="text_tai gradient_text" style="font-size: 100% !important"><img src="./asset/down.png"></p>
                   <!-- <p class="gb gradient_text">18,7 GB</p> -->
                </a>
             </li>
             <li><a class="a100 register" rel="register-popup" href="javascript:void(0)" onclick="show_registration()"><span class="gradient_text"><img src="./asset/dk.png"></span></a></li>
-            <li><a class="a100 card" target="_blank" href="#"><span class="gradient_text"><img src="./asset/nx.png"></span></a></li>
-            <li><a class="a100 card link_faqvip" style="cursor: pointer;"><span class="gradient_text"><img src="./asset/FAQ.png"></span></a></li>
+            <li><a class="a100 card" target="_blank" href="https://taikhoan.tieungaodailuc.com"><span class="gradient_text"><img src="./asset/nx.png"></span></a></li>
+            <li><a class="a100 card" style="cursor: pointer;"><span class="gradient_text"><img src="./asset/FAQ.png"></span></a></li>
          </ul>
       </div>
       <div class="back-to-top">
@@ -1349,6 +1349,12 @@
          p_uid:JSON.parse(localStorage.getItem('account')).uid,
       },
       }).done(function( msg ) {
+         $('.hide_level').hide();
+         if(msg.vip){
+         $('.level_'+msg.vip.level).show();
+        }else{
+         $('.level_1').show();
+        }
          $('.imgvip').html('<img src="./asset/number_vip'+msg.vip.level+'.png" alt="">');
          $('.birthday_text').html(msg.user);
          $('.list_nhan_qua .list').html();
@@ -1359,8 +1365,10 @@
             }
                html +='</ul>';
         $('.list_nhan_qua .list').html(html);
-        $('.hide_level').hide();
-        $('.level_'+msg.vip.level).show();
+       
+       
+        
+        
         if(msg.check_day){
           $('.btn_sn').html('<button class="nhanqua_sn text_upper btn-gift-receive" >ĐÃ NHẬN QUÀ</button>');
         }
