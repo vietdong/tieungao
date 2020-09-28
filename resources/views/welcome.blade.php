@@ -545,7 +545,7 @@
                
             </div>
             <div class="text_bd">
-               <p class="text_center text_small">Quà sinh nhật chỉ dành cho tài khoản từ VIP1-VIP6. Mở nhận vào ngày sinh nhật của tài khoản và kết thúc nhận sau 30 ngày.</p>
+               <p class="text_center text_small">Quà sinh nhật chỉ dành cho tài khoản từ VIP1-VVIP. Mở nhận vào ngày sinh nhật của tài khoản và kết thúc nhận sau 30 ngày.</p>
             </div>
          </div>
          
@@ -1365,10 +1365,6 @@
             }
                html +='</ul>';
         $('.list_nhan_qua .list').html(html);
-       
-       
-        
-        
         if(msg.check_day){
           $('.btn_sn').html('<button class="nhanqua_sn text_upper btn-gift-receive" >ĐÃ NHẬN QUÀ</button>');
         }
