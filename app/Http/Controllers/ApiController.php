@@ -11,9 +11,21 @@ class ApiController extends Controller
 {
     public function index(){
         $qua_ngay = DB::table('vip.gifts')->where('type',1)->get();
+        $check_qua_ngay = DB::table('vip.gifts')
+                        ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
+                        ->whereMonth('received_time',Carbon::now()->format('m'))
+                        ->whereDay('received_time',Carbon::now()->format('d'))
+                        ->where('type',1)->first();
         $qua_thang = DB::table('vip.gifts')->where('type',2)->get();
+        $check_thang = DB::table('vip.gifts')
+                        ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
+                        ->whereMonth('received_time',Carbon::now()->format('m'))
+                        ->whereDay('received_time',Carbon::now()->format('d'))
+                        ->where('type',2)->get();
+
         $qua_nam = DB::table('vip.gifts')->where('type',3)->get();
         $qua_sinh_nhat = DB::table('vip.gifts')->where('type',0)->first();
+  
         $vip = DB::table('vip.vip_points')->where('active',1)->orderBy('points', 'ASC')->skip(0)->take(6)->get();
         // $game_zones = DB::table('sw.game_zones')->where('test_sv',0)->get();
         $game_zones = DB::table('sw.game_zones')->get();
@@ -27,7 +39,7 @@ class ApiController extends Controller
         $mytime_day = Carbon::now()->format('d');
         $birthday = DB::table('sw.users')->whereMonth('birthday',$mytime_month)->whereDay('birthday',$mytime_day)->get();
         $xem_hang_chi_tiet = DB::connection('mysql_vip')->table('v_top_vip')->paginate(20);
-        return view('welcome',compact('qua_ngay','qua_thang','qua_nam','qua_sinh_nhat','vip','game_zones','list_vip','xem_hang_chi_tiet','birthday'));
+        return view('welcome',compact('qua_ngay','qua_thang','qua_nam','qua_sinh_nhat','vip','game_zones','list_vip','xem_hang_chi_tiet','birthday','check_qua_ngay','check_thang'));
     }
     public function registration(Request $request){
         if(strlen($request->username) > 20){
@@ -107,7 +119,13 @@ class ApiController extends Controller
         $detail_user['list'] = DB::table('vip.receive_gift_logs')
                                ->join('vip.gifts', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
                                ->where('uid',$request->p_uid)->get();
-        $detail_user['user']   =  date('d-m-Y',strtotime(DB::table('sw.users')->where('id',$request->p_uid)->first()->birthday));
+        $birthday = strtotime(DB::table('sw.users')->where('id',$request->p_uid)->first()->birthday);
+        $detail_user['user']   =  date('d-m-Y',$birthday);
+        $detail_user['check_day']   =  DB::table('vip.gifts')
+                                    ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
+                                    ->whereMonth('received_time',date('m',$birthday))
+                                    ->whereDay('received_time',date('d',$birthday))
+                                    ->where('type',0)->get();
         echo json_encode($detail_user);
     }
 }

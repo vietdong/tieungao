@@ -423,7 +423,7 @@
                   </div>
                   <div class="box_qua" >
                      <p class="icon_qua">
-                        <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/icon_quauudai.png" alt="">
+                        <img src="{{$value->img}}" alt="{{$value->img}}">
                      </p>
                      <p class="capbac text_center text_upper">
                      {{$value->name}}
@@ -433,9 +433,16 @@
                               <button class="text_upper btn_qua btn_khongdat"  style="background-image: url('./asset/bg_vg.png');color:#000">chưa mở</button>
                           </p>
                      @elseif(Carbon\Carbon::now()->format('d') == $value->slot)
+                          @if(isset($check_qua_ngay) && $check_qua_ngay->slot == $value->slot)
+                          <p class="text_center">
+                              <button  class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Đã nhận quà </button>
+                          </p>
+                          @else
                            <p class="text_center">
                               <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" level="{{$value->level}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
                           </p>
+                          @endif
+  
                      @else
                           <p class="text_center">
                               <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
@@ -489,7 +496,13 @@
                               @if(Carbon\Carbon::now()->format('m') < $value->slot)
                                  <button class="text_upper btn_qua btn_khongdat" style="background-image: url('./asset/bg_vg.png');color:#000">chưa mở</button>
                               @elseif(Carbon\Carbon::now()->format('m') == $value->slot)
+                               @foreach($check_thang as $qua)
+                                 @if(isset($qua) && $qua->slot == $value->slot)
+                                    <button  class="text_upper btn_qua btn_khongdat hide_level level_{{$qua->level}}" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Đã Nhận quà </button>
+                                 @else
                                  <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                                 @endif 
+                                 @endforeach  
                               @else
                                  <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
                               @endif
@@ -546,7 +559,7 @@
             <div class="day_remain">
                <p class="text_center">Còn <span class="color_orange">130</span> ngày</p>
             </div>
-            <p class="text_center">
+            <p class="text_center btn_sn">
                <button class="nhanqua_sn text_upper btn-gift-receive" onclick="info_detail(this)" name-gift="{{$qua_sinh_nhat->name}}" level="{{$qua_sinh_nhat->level}}" detail-gift="{{$qua_sinh_nhat->description}}" id-gift="{{$qua_sinh_nhat->id}}">
                NHẬN QUÀ
                </button>
@@ -1348,6 +1361,9 @@
         $('.list_nhan_qua .list').html(html);
         $('.hide_level').hide();
         $('.level_'+msg.vip.level).show();
+        if(msg.check_day){
+          $('.btn_sn').html('<button class="nhanqua_sn text_upper btn-gift-receive" >ĐÃ NHẬN QUÀ</button>');
+        }
       })
  }
  $('.back-to-top').on('click', function(e) {
