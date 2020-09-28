@@ -96,16 +96,17 @@ class ApiController extends Controller
         $results = DB::select('select @po_result as po_result, @po_description as po_description');
          if($results[0]->po_description == 'Nhận quà thành công'){
             $client = new Client();
-            
+            $gitf_id =   DB::table('vip.gifts')->find($request->p_gift_id);
             $response = $client->post('https://gameapi.tieungaodailuc.com/api/sendgift', [
                 'auth' => [
                     'tieungaogameapi', 
                     'tnapi#20991406'
                 ],
+              
                 'form_params' => [
                     'role_id' => $request->p_role_id,
                     'zone_id' => $request->p_server_id,
-                    'gift_id' => $request->p_gift_id,
+                    'gift_id' => $gitf_id->gift_id,
                     'amount'  => 1
                 ]
             ]);

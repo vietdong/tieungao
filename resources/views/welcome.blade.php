@@ -439,7 +439,7 @@
                           </p>
                           @else
                            <p class="text_center">
-                              <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" level="{{$value->level}}" id-gift="{{$value->gift_id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                              <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" level="{{$value->level}}" id-gift="{{$value->id}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
                           </p>
                           @endif
   
@@ -501,7 +501,7 @@
                                     <button  class="text_upper btn_qua btn_khongdat hide_level level_{{$value->level}}" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Đã Nhận quà </button>
                                  @else
                                  
-                                   <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->gift_id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                                   <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
                                  @endif 
                                  @endforeach  
                               @else
