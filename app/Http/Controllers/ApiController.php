@@ -22,7 +22,6 @@ class ApiController extends Controller
                         ->whereMonth('received_time',Carbon::now()->format('m'))
                         ->whereDay('received_time',Carbon::now()->format('d'))
                         ->where('type',2)->get();
-
         $qua_nam = DB::table('vip.gifts')->where('type',3)->get();
         $qua_sinh_nhat = DB::table('vip.gifts')->where('type',0)->first();
   
