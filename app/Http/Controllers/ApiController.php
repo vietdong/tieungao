@@ -132,9 +132,10 @@ class ApiController extends Controller
         $end = strtotime(Carbon::now()->format('Y').'-'.date('m-d',$birthday));
         if($start > $end){
             $next_nam = strtotime((Carbon::now()->format('Y')+1).'-'.Carbon::now()->format('m-d'));
-            $detail_user['count_birthday'] = (abs($next_nam - $end) / 86400) -  (abs($start - $end) / 86400);
+            $day = strtotime(date('Y-m-d', strtotime(Carbon::now()->format('Y').'-'.date('m-d',$birthday). ' + '.(abs($start - $end) / 86400).' days')));
+ 
+            $detail_user['count_birthday'] = (abs($next_nam - $day) / 86400) - (abs($start - $end) / 86400);
         }else{
-           
             $detail_user['count_birthday'] = abs($start - $end) / 86400;
         }
         echo json_encode($detail_user);
