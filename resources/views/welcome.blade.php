@@ -1381,7 +1381,7 @@
         }else if(msg.count_birthday == 0){
          $('.day_remain').html('<p class="text_center">Nhận quà ngay</p>');
         }else{
-         $('.day_remain').html('<p class="text_center">Đã qua sinh nhật của bạn </p>');
+         $('.day_remain').html('<p class="text_center">Đã qua sinh nhật </p>');
         }
       })
  }
