@@ -563,7 +563,7 @@
                <img src="https://cuuam.gosu.vn/home/static/templates/frontend/vip/assets/images/quasinhnhat.png" alt="">
             </p>
             <div class="day_remain">
-               <p class="text_center">Còn <span class="color_orange">130</span> ngày</p>
+               
             </div>
             <p class="text_center btn_sn">
                <button class="nhanqua_sn text_upper btn-gift-receive" onclick="info_detail(this)" name-gift="{{$qua_sinh_nhat->name}}" level="{{$qua_sinh_nhat->level}}" detail-gift="{{$qua_sinh_nhat->description}}" id-gift="{{$qua_sinh_nhat->id}}">
@@ -1374,6 +1374,13 @@
    
         if(msg.check_day.length > 0 ){
           $('.btn_sn').html('<button class="nhanqua_sn text_upper btn-gift-receive" >ĐÃ NHẬN QUÀ</button>');
+        }
+        if(msg.count_birthday > 0){
+           $('.day_remain').html('<p class="text_center">Còn <span class="color_orange">'+msg.count_birthday+'</span> ngày</p>');
+        }else if(msg.count_birthday == 0){
+         $('.day_remain').html('<p class="text_center">Nhận quà ngay</p>');
+        }else{
+         $('.day_remain').html('<p class="text_center">Đã qua sinh nhật của bạn </p>');
         }
       })
  }

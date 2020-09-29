@@ -10,6 +10,7 @@ use Carbon\Carbon;
 class ApiController extends Controller
 {
     public function index(){
+  
         $qua_ngay = DB::table('vip.gifts')->where('type',1)->get();
         $check_qua_ngay = DB::table('vip.gifts')
                         ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
@@ -126,6 +127,15 @@ class ApiController extends Controller
                                     ->whereMonth('received_time',date('m',$birthday))
                                     ->whereDay('received_time',date('d',$birthday))
                                     ->where('type',0)->get();
+
+        $start = strtotime(Carbon::now()->format('Y-m-d'));
+        $end = strtotime(Carbon::now()->format('Y').'-'.date('m-d',$birthday));
+        if($start >= $end){
+            $detail_user['count_birthday'] = abs($start - $end) / 86400;
+        }else{
+            $detail_user['count_birthday'] = false;
+        }
         echo json_encode($detail_user);
     }
+    
 }
