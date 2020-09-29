@@ -497,8 +497,8 @@
   }
   
   .topvip .list_art .art_top1 {
-    left: 356px;
-    top: 0px;
+    left: 371px;
+    top: -70px;
     z-index: 5;
 
     -webkit-animation: animation_sen 0.6s ease-in-out 0s infinite alternate;
@@ -507,7 +507,7 @@
   
   .topvip .list_art .art_top3 {
     right: 200px;
-    top: 109px;
+    top: 8px;
     z-index: 3;
   }
   

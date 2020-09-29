@@ -66,10 +66,10 @@
             <img src="./asset/art_top3.png" alt="">
         </div>
         <div class="art art_top1">
-            <img src="./asset/art_top1.png" alt="" style="width: 250px;">
+            <img src="./asset/art_top2.png" alt="" style="width: 250px;">
         </div>
         <div class="art art_top3">
-            <img src="./asset/art_top2.png" alt="">
+            <img src="./asset/art_top1.png" alt="">
         </div>
         <div class="art art_top5">
             <img src="./asset/art_top5.png" alt="">
