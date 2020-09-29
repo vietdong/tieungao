@@ -334,7 +334,15 @@
     z-index: 1;
     padding: 5px 0;
   }
-  
+  .marquee .container:before {
+    position: absolute;
+    content: '';
+    width: 319px;
+    height: 487px;
+    background: url('./text_header.png') no-repeat center center;
+    left: -245px;
+    top: 105px;
+}
   .marquee .container {
     position: relative;
   }
