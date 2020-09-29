@@ -496,14 +496,19 @@
                               @if(Carbon\Carbon::now()->format('m') < $value->slot)
                                  <button class="text_upper btn_qua btn_khongdat" style="background-image: url('./asset/bg_vg.png');color:#000">chưa mở</button>
                               @elseif(Carbon\Carbon::now()->format('m') == $value->slot)
-                               @foreach($check_thang as $qua)
-                                 @if(isset($qua) && $qua->slot == $value->slot)
-                                    <button  class="text_upper btn_qua btn_khongdat hide_level level_{{$value->level}}" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Đã Nhận quà </button>
+                                 @if(count($check_thang)> 0)
+                                      @foreach($check_thang as $qua)
+                                       @if($qua->slot == $value->slot)
+                                          <button  class="text_upper btn_qua btn_khongdat hide_level level_{{$value->level}}" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Đã Nhận quà </button>
+                                       @else
+                                          <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                                       @endif 
+                                       @endforeach  
                                  @else
-                                 
-                                   <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
-                                 @endif 
-                                 @endforeach  
+                                 <button  onclick="info_detail(this)" name-gift="{{$value->name}}" detail-gift="{{$value->description}}" id-gift="{{$value->id}}" level="{{$value->level}}" class="text_upper btn_qua btn_khongdat" style="background: url('./asset/bg_ok.png') no-repeat center center;" >Nhận quà </button>
+                                 @endif
+                        
+                       
                               @else
                                  <button class="text_upper btn_qua btn_khongdat">quá hạn</button>
                               @endif
@@ -1366,7 +1371,8 @@
             }
                html +='</ul>';
         $('.list_nhan_qua .list').html(html);
-        if(msg.check_day){
+   
+        if(msg.check_day.length > 0 ){
           $('.btn_sn').html('<button class="nhanqua_sn text_upper btn-gift-receive" >ĐÃ NHẬN QUÀ</button>');
         }
       })
