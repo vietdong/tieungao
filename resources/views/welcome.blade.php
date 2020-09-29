@@ -11,7 +11,7 @@
       <script async="" src="{{asset('asset/fbevents.js')}}"></script>
       <script async="" src="{{asset('asset/gtm.js')}}"></script>
       <link rel="stylesheet" href="{{asset('asset/vendor.min.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/style.min.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/style.min.css')}}?v={{rand()}}">
       <script type="text/javascript" src="{{asset('asset/jquery-1.11.2.min.js')}}"></script>
       <!-- 6Le_sr4ZAAAAAD-O9vYeFZFR6WwiZ2wgLS1SV2J3 -->
       <script src="https://www.google.com/recaptcha/api.js?render=6LcnGsgUAAAAAGHcgYiO6iFqP3t8711jD6ugFxnp"></script>
