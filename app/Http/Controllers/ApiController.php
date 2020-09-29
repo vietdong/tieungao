@@ -130,12 +130,12 @@ class ApiController extends Controller
 
         $start = strtotime(Carbon::now()->format('Y-m-d'));
         $end = strtotime(Carbon::now()->format('Y').'-'.date('m-d',$birthday));
-        if($start > $end){
-            $detail_user['count_birthday'] = -1;
-        }else{
+        // if($start > $end){
+        //     $detail_user['count_birthday'] = -1;
+        // }else{
            
             $detail_user['count_birthday'] = abs($start - $end) / 86400;
-        }
+        // }
         echo json_encode($detail_user);
     }
     
