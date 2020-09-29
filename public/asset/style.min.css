@@ -1633,8 +1633,8 @@
     height: 46px;
     line-height: 46px;
     margin: 0 auto;
-    background: url(./bg_behind_conlai.png) no-repeat center center;
-    margin-top: 60px;
+    /* background: url(./bg_behind_conlai.png) no-repeat center center; */
+    margin-top: 20px;
   }
   
   .qua_sinh_nhat .box_sinhnhat .day_remain p {
