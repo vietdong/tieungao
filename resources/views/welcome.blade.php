@@ -1308,7 +1308,7 @@
       checkLogin();
    })
    $('.receiving_gifts').click(function(){
-         console.log($('.all_role').val()+$('.select_role').val()+$('.gift_id').val());
+      $('#popup_loading').fadeIn();
          $.ajax({
                   headers: {
                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -1325,8 +1325,9 @@
             }).done(function( msg ) {
                $('.text_notification').html('<strong>'+msg+'</strong>');
                $('#popup_notification').fadeIn();
+               $('#popup_loading').fadeOut();
             }).fail(function(){
-                  
+               $('#popup_loading').fadeOut();
             }); 
    })
    localStorage.getItem('account') ? checkLogin(localStorage.getItem('account')) : checkLogin();
