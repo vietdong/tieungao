@@ -19,3 +19,4 @@ Route::post('login','ApiController@login')->name('login');
 Route::post('select-role','ApiController@selectRole')->name('select_role');
 Route::post('receiving-gifts','ApiController@receivingGifts')->name('receiving_gifts');
 Route::post('detail-user','ApiController@detailUser')->name('detail.user');
+Route::post('check-vip-points','ApiController@checkVipPoints')->name('detail.user');

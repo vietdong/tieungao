@@ -85,7 +85,7 @@ class ApiController extends Controller
         $role = DB::table('sw.roles')->where('zone',$request->zone_id)->where('uid',$request->user_id)->get();
         echo json_encode($role);
     }
-    public function receivingGifts(Request $request){
+    public function receivingGifts($request){
         $check_vip= DB::connection('mysql_vip')->table('v_top_vip')->where('uid',$request->p_uid)->first();;
         $data = [
             'p_uid' => $request->p_uid,
@@ -129,16 +129,27 @@ class ApiController extends Controller
                                     ->where('type',0)->get();
 
         $start = strtotime(Carbon::now()->format('Y-m-d'));
-        $end = strtotime(Carbon::now()->format('Y').'-'.date('m-d',$birthday));
+        $end = strtotime(Carbon::now()->format('Y') .'-'. date('m-d',$birthday));
         if($start > $end){
-            $next_nam = strtotime((Carbon::now()->format('Y')+1).'-'.Carbon::now()->format('m-d'));
-            $day = strtotime(date('Y-m-d', strtotime(Carbon::now()->format('Y').'-'.date('m-d',$birthday). ' + '.(abs($start - $end) / 86400).' days')));
- 
-            $detail_user['count_birthday'] = (abs($next_nam - $day) / 86400) - (abs($start - $end) / 86400);
+            $detail_user['count_birthday'] = $this->cal_days_in_year(Carbon::now()->format('Y')) - (abs($start - $end) / 86400);
         }else{
             $detail_user['count_birthday'] = abs($start - $end) / 86400;
         }
         echo json_encode($detail_user);
     }
-    
+    function cal_days_in_year($year){
+        $days=0; 
+        for($month=1;$month<=12;$month++){ 
+            $days = $days + cal_days_in_month(CAL_GREGORIAN,$month,$year);
+         }
+     return $days;
+    }
+    function checkVipPoints(Request $request){
+        $check_vip_points = DB::table('vip.vip_points')->where('uid',$request->p_uid)->first();
+        if($check_vip_points->active == 0){
+            echo json_encode('Bạn phải nạp tối thiểu 200k để nhận VIP');
+        }else{
+            $this->receivingGifts($request);
+        }
+    }
 }

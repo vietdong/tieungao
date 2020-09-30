@@ -1310,6 +1310,29 @@
    $('.receiving_gifts').click(function(){
       $('#popup_loading').fadeIn();
          $.ajax({
+            headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method: "POST",
+            url: "/check-vip-points",
+            dataType: "json",
+            data: {
+               p_uid:JSON.parse(localStorage.getItem('account')).uid,
+               p_gift_id:$('.gift_id').val(),
+               p_role_id:$('.all_role').val(),
+               p_server_id:$('.select_role').val(),
+            },
+         }).done(function( msg ) {
+               $('.text_notification').html('<strong>'+msg+'</strong>');
+               $('#popup_notification').fadeIn();
+               $('#popup_loading').fadeOut();
+            }).fail(function(){
+               $('#popup_loading').fadeOut();
+            }); 
+   })
+   function receiving_gifts(){
+      $('#popup_loading').fadeIn();
+         $.ajax({
                   headers: {
                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
@@ -1329,7 +1352,7 @@
             }).fail(function(){
                $('#popup_loading').fadeOut();
             }); 
-   })
+   }
    localStorage.getItem('account') ? checkLogin(localStorage.getItem('account')) : checkLogin();
    function checkLogin(value = ""){
       if(value){
