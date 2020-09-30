@@ -398,8 +398,38 @@
             <div class="box_infovip tab-noi-dung active-info">
                <div class="title_vinhdanh text_center text_upper">
                   <p style="font-size: 30px;">NỘI DUNG CHƯƠNG TRÌNH VIP</p>
+                 
                </div>
-   
+              <div class="text_nd">
+              <p class="heder_nd">1. ĐIỂM DANH HÀNG NGÀY</p>
+                  <span>
+                 
+                  Mỗi ngày, các Đại Hiệp chỉ cần truy cập vào trang Phúc Lợi, tiến hành điểm danh tại mục Điểm Danh Hàng Ngày của Tiếu Ngạo Đại Lục là có thể nhận được ngay một phần quà! Phần quà của các ngày sẽ khác nhau, bỏ lỡ ngày nào sẽ không thể nhận bù lại nên các Đại Hiệp nhất định đừng quên nhé! </span>
+                   <p class="heder_nd">
+                   2. HỆ THỐNG VIP ĐẠI LỤC
+                   </p>
+                   <span>
+                   Trong dịp Update lần này, Đại Lục sẽ ra mắt Hệ Thống Phúc Lợi VIP đặc biệt thay lời tri ân cho Đại Hiệp đã luôn ủng hộ Đại Lục trong suốt thười gian qua! Cùng tìm hiểu cơ chế tính điểm VIP nhé!
+                   </span>
+                   <p class="heder_nd">CÁC CẤP BẬC VIP</p>
+                   <span>Hệ thống VIP trong Tiếu Ngạo Đại Lục sẽ bao gồm 6 cấp VIP như sau:</span>
+                   <p>- VIP 1: Nạp 100 xu</p>
+                   <p>- VIP 2: Nạp 1000 xu</p>
+                   <p>- VIP 3: Nạp 2000 xu</p>
+                   <p>- VIP 4: Nạp 6000 xu</p>
+                   <p>- VIP 5: Nạp 12000 xu</p>
+                   <p>- VVIP : Nạp 20000 xu trở lên</p>
+                    <p class="heder_nd">CÁCH TÍNH ĐIỂM VIP HÀNG THÁNG</p>
+                    <p>Vào ngày 1 hàng tháng, hệ thống VIP sẽ tự động hết thời hạn nhận thưởng. Để kích hoạt lại cấp VIP đang có, Đại Hiệp cần chuyển tối thiểu 400 xu vào game. Số xu này sẽ tiếp tục được cộng dồn vào mốc VIP đang có để kích hoạt lên mốc VIP cao hơn khi đủ yêu cầu.</p>
+                    <p>
+                    Ví dụ: Tháng 10, Đại Hiệp nạp tổng số 1000 xu, cấp VIP của Đại Hiệp là cấp 2. Vào ngày 01/11, cấp VIP sẽ hết thời hạn. Khi Đại Hiệp tiến hành chuyển 400 xu vào game, cấp bậc VIP của Đại Hiệp sẽ tự động được kích hoạt lại và vẫn giữ ở VIP 2. Trong 2 tháng tiếp theo, mỗi tháng Đại Hiệp chỉ cần chuyển 400 xu vào game để duy trì VIP 2 thì sau thời hạn trên, số xu tích lũy sẽ đủ yêu cầu để kích hoạt cấp VIP 3.</p>
+                    <p>Đặc biệt, với hệ thống VIP lần này, cấp VIP sẽ không bao giờ mất đi mà chỉ hết thời hạn nhận thưởng. Các Đại Hiệp có thể tiến hành kích hoạt lại cấp VIP đang có bất cứ lúc nào.</p>
+                    <p class="heder_nd">PHẦN THƯỞNG VIP</p>
+                    <p class="title_nd">a. QUÀ TẶNG VIP THEO THÁNG</p>
+                    <p>Mỗi tháng, các Đại Hiệp có thể nhận quà tặng VIP một lần theo cấp độ VIP mà mình đang có. Vì quà VIP tháng chỉ nhận 1 lần duy nhất trong tháng nên Đại Hiệp lưu ý nên lên tới cấp VIP cao nhất có thể trong tháng đó rồi mới nhận quà.</p>
+                   
+<p class="title_nd">b. QUÀ TẶNG VIP NGÀY SINH NHẬT</p>
+<p>Các Đại Hiệp đăng ký tài khoản trên <a href="https://taikhoan.tieungaodailuc.com">Trang ID</a> của Tiếu Ngạo Đại Lục cũng đừng quên điền đầy đủ và chính xác ngày Sinh Nhật để được Nhận quà chúc mừng sinh nhật từ Đại Lục nhé!</P></div>
             </div>
 <!-- tab nhận quà -->
 
@@ -926,8 +956,16 @@
                   </tr>
                </tbody>
             </table>
-            <p>- Lưu Ý: Quà VIP được Reset vào ngày mùng 1 hàng tháng ( đặc biệt sẽ không bị tụt điểm VIP).</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Để tiếp tục nhận Ưu Đãi quà VIP sau khi Reset các Đại Hiệp chỉ cần nạp 200k là có thể tiếp tục Nhận Quà tại Mốc VIP hiện tại.
+            <p style="color:#f88218">
+            CÁCH TÍNH ĐIỂM VIP HÀNG THÁNG<br>
+
+            <p>
+            Vào ngày 1 hàng tháng, hệ thống VIP sẽ tự động hết thời hạn nhận thưởng. Để kích hoạt lại cấp VIP đang có, Đại Hiệp cần chuyển tối thiểu 400 xu vào game. Số xu này sẽ tiếp tục được cộng dồn vào mốc VIP đang có để kích hoạt lên mốc VIP cao hơn khi đủ yêu cầu.</p>
+             <p>
+             Ví dụ: Tháng 10, Đại Hiệp nạp tổng số 1000 xu, cấp VIP của Đại Hiệp là cấp 2. Vào ngày 01/11, cấp VIP sẽ hết thời hạn. Khi Đại Hiệp tiến hành chuyển 400 xu vào game, cấp bậc VIP của Đại Hiệp sẽ tự động được kích hoạt lại và vẫn giữ ở VIP 2. Trong 2 tháng tiếp theo, mỗi tháng Đại Hiệp chỉ cần chuyển 400 xu vào game để duy trì VIP 2 thì sau thời hạn trên, số xu tích lũy sẽ đủ yêu cầu để kích hoạt cấp VIP 3.
+             </p>
+               <p>Đặc biệt, với hệ thống VIP lần này, cấp VIP sẽ không bao giờ mất đi mà chỉ hết thời hạn nhận thưởng. Các Đại Hiệp có thể tiến hành kích hoạt lại cấp VIP đang có bất cứ lúc nào.</p>
+            </p>
                      </div>
       </div></div></div></div></div>
                <a class="close_content"></a>

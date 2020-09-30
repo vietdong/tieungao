@@ -1623,7 +1623,24 @@
   .qua_sinh_nhat .box_sinhnhat .your_birthday p {
     font-size: 15px;
   }
-  
+  .text_nd{
+    color: #fef5df;
+    font-family: arial;
+    line-height: 25px;
+    padding: 0 15px;
+    margin-top: 50px;
+  }
+  .text_nd a{
+    color: #fef5df;
+    text-decoration: underline;
+  }
+  .heder_nd{
+    color: #ffd838;
+    font-size: 140%;
+  }
+  .title_nd{
+    color: #df6e42;
+  }
   .qua_sinh_nhat .box_sinhnhat .qua_sinhnhat {
     margin-top: 45px;
   }
