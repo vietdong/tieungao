@@ -284,7 +284,7 @@
            <div class="container">
            <div class="header_checkvip">
                <div class="text_left tugiac_left">
-                  <p class="text_upper">phú hào ngũ tuyệt <span class="text_month"> <span class="month_show">{{Carbon\Carbon::now()->format('m/Y')}}</span></span></p>
+                  <p class="text_upper">Ngũ Đại Phú Hào <span class="text_month"> <span class="month_show">{{Carbon\Carbon::now()->format('m/Y')}}</span></span></p>
                </div>
                <div href="#" class="link_show link_bxh text_upper text_center">
                   
@@ -439,7 +439,7 @@
       <div class="qua_thang">
          <div class="header_quathang clearfix">
             <div class="right_header">
-               <h2 class="tit_right_header text_upper">NHẬN QUÀ ƯU ĐÃI THÁNG {{Carbon\Carbon::now()->format('m')}}</h2>
+               <h2 class="tit_right_header text_upper">NHẬN QUÀ ƯU ĐÃI THÁNG 10</h2>
                
                </form>
             </div>
@@ -679,7 +679,7 @@
    <div class="content_popup">
    <div class="wrapper_popup">
       <div class="title_detail text_center">
-         <span class="text_upper">BXH PHÚ HÀO NGŨ TUYỆT <span class="thang"></span></span>
+         <span class="text_upper">BXH Ngũ Đại Phú Hào <span class="thang"></span></span>
       </div>
       <p style="    color: red;
        text-align: center;
