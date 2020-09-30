@@ -147,8 +147,7 @@ class ApiController extends Controller
     function checkVipPoints(Request $request){
         $check_vip_points = DB::table('vip.vip_points')->where('uid',$request->p_uid)->first();
         $check_vip = DB::connection('mysql_vip')->table('v_top_vip')->where('uid',$request->p_uid)->first();
-        dd($check_vip->vip);
-        if($check_vip->vip < 1 || $check_vip->vip == null){
+        if($check_vip->level < 1 || $check_vip->level == null){
             echo json_encode('Bạn chưa có vip');
         }
         if($check_vip_points->active == 0){
