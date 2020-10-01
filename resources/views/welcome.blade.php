@@ -1283,6 +1283,7 @@
                 checkLogin(localStorage.getItem('account'));
                 checkUser();
                 $('.popup').fadeOut();
+                location.reload();
           
              }).fail(function(){
                $('.text_notification').html('<strong>Tên tài khoản hoặc mật khẩu không đúng</strong>');
