@@ -9,20 +9,37 @@ use GuzzleHttp\Client;
 use Carbon\Carbon;
 class ApiController extends Controller
 {
-    public function index(){
-  
+    public function index(Request $request){
+ 
         $qua_ngay = DB::table('vip.gifts')->where('type',1)->get();
-        $check_qua_ngay = DB::table('vip.gifts')
+        if(session('uid')){
+            $check_qua_ngay = DB::table('vip.gifts')
+                            ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
+                            ->whereMonth('received_time',Carbon::now()->format('m'))
+                            ->whereDay('received_time',Carbon::now()->format('d'))
+                            ->where('uid',session('uid'))
+                            ->where('type',1)->first();
+            $check_thang = DB::table('vip.gifts')
+                        ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
+                        ->whereMonth('received_time',Carbon::now()->format('m'))
+                        ->whereDay('received_time',Carbon::now()->format('d'))
+                        ->where('uid',session('uid'))
+                        ->where('type',2)->get();
+        }else {
+            $check_qua_ngay = DB::table('vip.gifts')
                         ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
                         ->whereMonth('received_time',Carbon::now()->format('m'))
                         ->whereDay('received_time',Carbon::now()->format('d'))
                         ->where('type',1)->first();
+            $check_thang = DB::table('vip.gifts')
+                    ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
+                    ->whereMonth('received_time',Carbon::now()->format('m'))
+                    ->whereDay('received_time',Carbon::now()->format('d'))
+                    ->where('type',2)->get();
+        }
+        
         $qua_thang = DB::table('vip.gifts')->where('type',2)->get();
-        $check_thang = DB::table('vip.gifts')
-                        ->join('vip.receive_gift_logs', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
-                        ->whereMonth('received_time',Carbon::now()->format('m'))
-                        ->whereDay('received_time',Carbon::now()->format('d'))
-                        ->where('type',2)->get();
+        
         $qua_nam = DB::table('vip.gifts')->where('type',3)->get();
         $qua_sinh_nhat = DB::table('vip.gifts')->where('type',0)->first();
   
@@ -116,6 +133,7 @@ class ApiController extends Controller
         echo json_encode($results[0]->po_description);
     }
     function detailUser(Request $request){
+        $value = session(['uid' => $request->p_uid]);
         $detail_user['vip']  = DB::connection('mysql_vip')->table('v_top_vip')->where('uid',$request->p_uid)->first();
         $detail_user['list'] = DB::table('vip.receive_gift_logs')
                                ->join('vip.gifts', 'vip.gifts.id', '=', 'vip.receive_gift_logs.gift_id')
@@ -145,6 +163,7 @@ class ApiController extends Controller
      return $days;
     }
     function checkVipPoints(Request $request){
+       
         $check_vip_points = DB::table('vip.vip_points')->where('uid',$request->p_uid)->first();
         $check_vip = DB::connection('mysql_vip')->table('v_top_vip')->where('uid',$request->p_uid)->first();
         if($check_vip->level < 1 || $check_vip->level == null){
