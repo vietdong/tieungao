@@ -1365,7 +1365,7 @@
                $('.text_notification').html('<strong>'+msg+'</strong>');
                $('#popup_notification').fadeIn();
                $('#popup_loading').fadeOut();
-               location.reload();
+               
             }).fail(function(){
                $('#popup_loading').fadeOut();
             }); 
